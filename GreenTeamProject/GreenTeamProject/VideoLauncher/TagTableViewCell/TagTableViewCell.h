@@ -1,8 +1,8 @@
 //
-//  VideoPlayerView.h
+//  TagTableViewCell.h
 //  GreenTeamProject
 //
-//  Created by Anton Sipaylo on 7/12/19.
+//  Created by Anton Sipaylo on 7/13/19.
 //  Copyright © 2019 GreenTeam. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VideoPlayerView : UIView
-
-- (void)setVideoID:(NSString *)ID;
+@interface TagTableViewCell : UITableViewCell
 
 @end
 

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "VideoLauncher/VideoLauncher.h"
+#import "VideoLauncher/VideoImageLoader.h"
 
 @interface ViewController ()
 
@@ -28,12 +29,14 @@
 }
 
 - (void)tapOnVideo {
+    NSString *videoID = @"13flvY-cbUw";
+//    VideoImageLoader *videoImageLoader = [VideoImageLoader new];
+//    [videoImageLoader loadImageAtURL: videoURL];
+//    return;
     self.statusBarHidden = YES;
     [self setNeedsStatusBarAppearanceUpdate];
     VideoLauncher *videoLauncher = [VideoLauncher new];
-    NSString *videoURL =
-    @"https://www.youtu.be/watch?v=Ummvu4BXlRA";
-    [videoLauncher showVideoWithURL:videoURL];
+    [videoLauncher showVideoWithID:videoID];
 }
 
 @end

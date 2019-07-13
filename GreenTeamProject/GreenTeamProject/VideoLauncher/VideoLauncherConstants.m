@@ -13,4 +13,5 @@ const struct VideoLauncherConstants videoLauncherConstants = {
     .videoPlayerVideStartHeight = 10,
     .widthProportion = 9,
     .heightProportion = 16,
+    .sectionsAmount = 1,
 };

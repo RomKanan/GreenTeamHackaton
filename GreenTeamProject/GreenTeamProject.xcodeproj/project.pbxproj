@@ -12,6 +12,11 @@
 		3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BC47022D8DF5E005B2F31 /* VideoLauncherConstants.m */; };
 		3A0BC47422D8E3E6005B2F31 /* VideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BC47322D8E3E6005B2F31 /* VideoPlayerView.m */; };
 		3A6A125422D9ED75003DA61A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A125322D9ED75003DA61A /* GoogleService-Info.plist */; };
+		3A6A125722DA13C8003DA61A /* VideoImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A125622DA13C8003DA61A /* VideoImageLoader.m */; };
+		3A6A125922DA237F003DA61A /* VideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A125822DA237F003DA61A /* VideoPlayerView.xib */; };
+		3A6A125D22DA46DA003DA61A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6A125C22DA46DA003DA61A /* iAd.framework */; };
+		3A6A126022DA5EFF003DA61A /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A125F22DA5EFF003DA61A /* TagTableViewCell.m */; };
+		3A6A126722DA61F4003DA61A /* GTTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A126522DA61F4003DA61A /* GTTag.m */; };
 		A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3A22D8B47800420617 /* AppDelegate.m */; };
 		A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3D22D8B47800420617 /* ViewController.m */; };
 		A0D2CE4122D8B47800420617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE3F22D8B47800420617 /* Main.storyboard */; };
@@ -29,6 +34,14 @@
 		3A0BC47222D8E3E6005B2F31 /* VideoPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerView.h; sourceTree = "<group>"; };
 		3A0BC47322D8E3E6005B2F31 /* VideoPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerView.m; sourceTree = "<group>"; };
 		3A6A125322D9ED75003DA61A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		3A6A125522DA13C8003DA61A /* VideoImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoImageLoader.h; sourceTree = "<group>"; };
+		3A6A125622DA13C8003DA61A /* VideoImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoImageLoader.m; sourceTree = "<group>"; };
+		3A6A125822DA237F003DA61A /* VideoPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayerView.xib; sourceTree = "<group>"; };
+		3A6A125C22DA46DA003DA61A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		3A6A125E22DA5EFF003DA61A /* TagTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagTableViewCell.h; sourceTree = "<group>"; };
+		3A6A125F22DA5EFF003DA61A /* TagTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagTableViewCell.m; sourceTree = "<group>"; };
+		3A6A126522DA61F4003DA61A /* GTTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTag.m; sourceTree = "<group>"; };
+		3A6A126622DA61F4003DA61A /* GTTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTag.h; sourceTree = "<group>"; };
 		6C2C87BEC9B63EEE5D7230FD /* libPods-GreenTeamProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GreenTeamProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9622248EAA1788714FE1736C /* Pods-GreenTeamProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTeamProject.debug.xcconfig"; path = "Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A0D2CE3622D8B47800420617 /* GreenTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A6A125D22DA46DA003DA61A /* iAd.framework in Frameworks */,
 				19CBACA14D6CA92F6C634580 /* libPods-GreenTeamProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,6 +72,7 @@
 		161E5CE289B41DC908065F45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A6A125C22DA46DA003DA61A /* iAd.framework */,
 				6C2C87BEC9B63EEE5D7230FD /* libPods-GreenTeamProject.a */,
 			);
 			name = Frameworks;
@@ -68,12 +83,27 @@
 			children = (
 				3A0BC46F22D8DF5E005B2F31 /* VideoLauncherConstants.h */,
 				3A0BC47022D8DF5E005B2F31 /* VideoLauncherConstants.m */,
+				3A6A126122DA5F0C003DA61A /* TagTableViewCell */,
 				3A0BC46B22D8DDF5005B2F31 /* VideoLauncher.h */,
 				3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */,
 				3A0BC47222D8E3E6005B2F31 /* VideoPlayerView.h */,
 				3A0BC47322D8E3E6005B2F31 /* VideoPlayerView.m */,
+				3A6A125822DA237F003DA61A /* VideoPlayerView.xib */,
+				3A6A125522DA13C8003DA61A /* VideoImageLoader.h */,
+				3A6A125622DA13C8003DA61A /* VideoImageLoader.m */,
 			);
 			path = VideoLauncher;
+			sourceTree = "<group>";
+		};
+		3A6A126122DA5F0C003DA61A /* TagTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3A6A126622DA61F4003DA61A /* GTTag.h */,
+				3A6A126522DA61F4003DA61A /* GTTag.m */,
+				3A6A125E22DA5EFF003DA61A /* TagTableViewCell.h */,
+				3A6A125F22DA5EFF003DA61A /* TagTableViewCell.m */,
+			);
+			path = TagTableViewCell;
 			sourceTree = "<group>";
 		};
 		A0D2CE2D22D8B47800420617 = {
@@ -183,6 +213,7 @@
 				A0D2CE4622D8B47B00420617 /* LaunchScreen.storyboard in Resources */,
 				3A6A125422D9ED75003DA61A /* GoogleService-Info.plist in Resources */,
 				A0D2CE4322D8B47B00420617 /* Assets.xcassets in Resources */,
+				3A6A125922DA237F003DA61A /* VideoPlayerView.xib in Resources */,
 				A0D2CE4122D8B47800420617 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,9 +268,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */,
+				3A6A125722DA13C8003DA61A /* VideoImageLoader.m in Sources */,
 				3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */,
 				A0D2CE4922D8B47B00420617 /* main.m in Sources */,
+				3A6A126022DA5EFF003DA61A /* TagTableViewCell.m in Sources */,
 				A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */,
+				3A6A126722DA61F4003DA61A /* GTTag.m in Sources */,
 				3A0BC46D22D8DDF5005B2F31 /* VideoLauncher.m in Sources */,
 				3A0BC47422D8E3E6005B2F31 /* VideoPlayerView.m in Sources */,
 			);
@@ -392,7 +426,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = RSGreenTeam.GreenTeamProject;
+				PRODUCT_BUNDLE_IDENTIFIER = RSGreenTeam.GreenTeam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -412,7 +446,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = RSGreenTeam.GreenTeamProject;
+				PRODUCT_BUNDLE_IDENTIFIER = RSGreenTeam.GreenTeam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

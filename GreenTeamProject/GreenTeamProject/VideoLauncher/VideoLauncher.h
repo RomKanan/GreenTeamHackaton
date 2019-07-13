@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VideoLauncher : NSObject
 
-- (void)showVideoWithURL:(NSString *)urlString;
+- (void)showVideoWithID:(NSString *)videoID;
 
 @end
 

@@ -13,6 +13,7 @@ struct VideoLauncherConstants {
     const CGFloat videoPlayerVideStartHeight;
     const CGFloat widthProportion;
     const CGFloat heightProportion;
+    const NSInteger sectionsAmount;
 };
 
 extern const struct VideoLauncherConstants videoLauncherConstants;
