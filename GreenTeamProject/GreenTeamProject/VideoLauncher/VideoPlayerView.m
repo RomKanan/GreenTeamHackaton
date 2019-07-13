@@ -78,7 +78,7 @@
 
 - (void)playerView:(nonnull YTPlayerView *)playerView didChangeToQuality:(YTPlaybackQuality)quality {
     //implement part loading when quality is getting worse or better...
-    [playerView seekto]
+    
 }
 
 - (void)playerView:(nonnull YTPlayerView *)playerView receivedError:(YTPlayerError)error {

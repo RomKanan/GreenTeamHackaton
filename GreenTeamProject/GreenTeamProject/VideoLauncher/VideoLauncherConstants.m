@@ -14,4 +14,10 @@ const struct VideoLauncherConstants videoLauncherConstants = {
     .widthProportion = 9,
     .heightProportion = 16,
     .sectionsAmount = 1,
+    .tagCellIdentifier = @"TagTableViewCell",
+    .cellHeight = 50,
+    .sectionHeaderViewIdentifier = @"VideoNameHeaderView",
+    .buttonHeight = 60,
+    .buttonWidth = 70,
+    .tableViewActionButtonSpacing = 20,
 };
