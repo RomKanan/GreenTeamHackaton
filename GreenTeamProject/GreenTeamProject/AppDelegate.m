@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GTFistScreenViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    GTFistScreenViewController *viewController = [[GTFistScreenViewController alloc] init];
+    
+    [self.window setRootViewController:viewController];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
