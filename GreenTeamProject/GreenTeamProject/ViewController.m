@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "VideoLauncher/VideoLauncher.h"
 
 @interface ViewController ()
+
+@property (assign, nonatomic) BOOL statusBarHidden;
 
 @end
 
@@ -16,8 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self tapOnVideo];
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return self.statusBarHidden;
+}
+
+- (void)tapOnVideo {
+    self.statusBarHidden = YES;
+    [self setNeedsStatusBarAppearanceUpdate];
+    VideoLauncher *videoLauncher = [VideoLauncher new];
+    NSString *videoURL =
+    @"https://www.youtu.be/watch?v=Ummvu4BXlRA";
+    [videoLauncher showVideoWithURL:videoURL];
+}
 
 @end
