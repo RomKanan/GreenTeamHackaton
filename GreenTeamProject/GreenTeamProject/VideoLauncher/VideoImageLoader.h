@@ -6,13 +6,15 @@
 //  Copyright © 2019 GreenTeam. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VideoImageLoader : NSObject
 
-- (void)loadImageAtURL:(NSString *)urlString;
++ (instancetype)shared;
+- (void)loadImageAtVideoID:(NSString *)videoID
+         completionHandler:(void(^)(UIImage *image))completion;
 
 @end
 

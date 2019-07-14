@@ -11,7 +11,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol TagTableViewCellListener <NSObject>
+
+- (void)tapOnCellRecognized:(float)time;
+
+@end
+
 @interface TagTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) id<TagTableViewCellListener> listener;
 
 - (void)setVideoTag:(GTTag *)tag;
 

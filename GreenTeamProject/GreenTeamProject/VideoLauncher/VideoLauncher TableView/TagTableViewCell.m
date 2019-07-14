@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *tagNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (assign, nonatomic) float time;
 
 @end
 
@@ -19,13 +20,19 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.selectionStyle = UITableViewCellSelectionStyleBlue;
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnCell:)];
+    [self addGestureRecognizer:tapGestureRecognizer];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)tapOnCell:(UITapGestureRecognizer *)tapGestureRecognizer {
+    if ([self.listener conformsToProtocol:@protocol(TagTableViewCellListener)]) {
+        [self.listener tapOnCellRecognized:self.time];
+    }
 }
 
 - (void)setVideoTag:(GTTag *)tag {
+    self.time = tag.time;
     self.tagNameLabel.text = tag.name;
     self.tagNameLabel.textColor = tag.color;
     self.timeLabel.text = [NSString stringWithFormat:@"%f", tag.time];

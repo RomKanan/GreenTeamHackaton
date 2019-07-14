@@ -7,13 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GTVideo.h"
+#import "VideoLauncher TableView/GTTag.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol VideoLauncherListener <NSObject>
+
+@required
+- (void)deleteVideoLauncher;
+
+@end
+
 @interface VideoLauncher : NSObject
 
-- (instancetype)initWithTags:(NSMutableArray *)tags videoName:(NSString *)videoName;
-- (void)showVideoWithID:(NSString *)videoID;
+@property (weak, nonatomic) id<VideoLauncherListener> listener;
+
+- (instancetype)initWithVideo:(GTVideo *)video;
+- (instancetype)initWithTag:(GTTag *)tag;
+- (void)play;
 
 @end
 

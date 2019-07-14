@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "../GTVideo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *urlString;
+@property (nonatomic, strong) GTVideo *video;
 @property (nonatomic, assign) float time;
 
-- (instancetype)initWithURLString:(NSString *)urlString color:(UIColor *)color name:(NSString *)name time:(float)time;
+- (instancetype)initWithVideo:(GTVideo *)video color:(UIColor *)color name:(NSString *)name time:(float)time;
 
 @end
 

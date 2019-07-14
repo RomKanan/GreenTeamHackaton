@@ -11,6 +11,8 @@
 struct VideoLauncherConstants {
     const CGFloat videoPlayerVideStartWidth;
     const CGFloat videoPlayerVideStartHeight;
+    const CGFloat videoPlayerVideMiddleWidth;
+    const CGFloat videoPlayerVideMiddleHeight;
     const CGFloat widthProportion;
     const CGFloat heightProportion;
     const NSInteger sectionsAmount;

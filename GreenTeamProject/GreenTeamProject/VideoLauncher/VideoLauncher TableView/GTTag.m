@@ -10,15 +10,15 @@
 
 @implementation GTTag
 
-- (instancetype)initWithURLString:(NSString *)urlString
+- (instancetype)initWithVideo:(GTVideo *)video
                             color:(UIColor *)color
                              name:(NSString *)name
                              time:(float)time {
     if (self = [super init]) {
-        self.urlString = urlString;
-        self.color = color;
-        self.name = name;
-        self.time = time;
+        _video = video;
+        _color = color;
+        _name = name;
+        _time = time;
     }
     return self;
 }

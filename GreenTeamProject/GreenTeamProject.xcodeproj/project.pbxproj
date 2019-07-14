@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3A02455722DB8A2700AF6FDE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A02455622DB8A2700AF6FDE /* WebKit.framework */; };
+		3A02455C22DBC7D300AF6FDE /* GTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A02455A22DBC7D300AF6FDE /* GTVideo.m */; };
 		3A0BC46D22D8DDF5005B2F31 /* VideoLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */; };
 		3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BC47022D8DF5E005B2F31 /* VideoLauncherConstants.m */; };
 		3A6A125722DA13C8003DA61A /* VideoImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A125622DA13C8003DA61A /* VideoImageLoader.m */; };
@@ -23,10 +24,13 @@
 		A0D2CE4322D8B47B00420617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE4222D8B47B00420617 /* Assets.xcassets */; };
 		A0D2CE4622D8B47B00420617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE4422D8B47B00420617 /* LaunchScreen.storyboard */; };
 		A0D2CE4922D8B47B00420617 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE4822D8B47B00420617 /* main.m */; };
+		EF69EF0EB86DD6C16B5A3268 /* libPods-GreenTeamProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CFE29BF33F2BD9B07EA4D38 /* libPods-GreenTeamProject.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A02455622DB8A2700AF6FDE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3A02455A22DBC7D300AF6FDE /* GTVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTVideo.m; sourceTree = "<group>"; };
+		3A02455B22DBC7D300AF6FDE /* GTVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTVideo.h; sourceTree = "<group>"; };
 		3A0BC46B22D8DDF5005B2F31 /* VideoLauncher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLauncher.h; sourceTree = "<group>"; };
 		3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLauncher.m; sourceTree = "<group>"; };
 		3A0BC46F22D8DF5E005B2F31 /* VideoLauncherConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLauncherConstants.h; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 		3A6A12B322DB68EC003DA61A /* UIColor+CustomColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColor.h"; sourceTree = "<group>"; };
 		3A6A12B422DB68EC003DA61A /* UIColor+CustomColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
 		598C54D3C2DDB23503872DE7 /* Pods-GreenTeamProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTeamProject.release.xcconfig"; path = "Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject.release.xcconfig"; sourceTree = "<group>"; };
+		6CFE29BF33F2BD9B07EA4D38 /* libPods-GreenTeamProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GreenTeamProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2CE3622D8B47800420617 /* GreenTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2CE3922D8B47800420617 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0D2CE3A22D8B47800420617 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A02455722DB8A2700AF6FDE /* WebKit.framework in Frameworks */,
+				EF69EF0EB86DD6C16B5A3268 /* libPods-GreenTeamProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +81,8 @@
 				3A0BC46F22D8DF5E005B2F31 /* VideoLauncherConstants.h */,
 				3A0BC47022D8DF5E005B2F31 /* VideoLauncherConstants.m */,
 				3A6A126122DA5F0C003DA61A /* VideoLauncher TableView */,
+				3A02455B22DBC7D300AF6FDE /* GTVideo.h */,
+				3A02455A22DBC7D300AF6FDE /* GTVideo.m */,
 				3A0BC46B22D8DDF5005B2F31 /* VideoLauncher.h */,
 				3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */,
 				3A6A125522DA13C8003DA61A /* VideoImageLoader.h */,
@@ -156,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				3A02455622DB8A2700AF6FDE /* WebKit.framework */,
+				6CFE29BF33F2BD9B07EA4D38 /* libPods-GreenTeamProject.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -171,6 +180,7 @@
 				A0D2CE3222D8B47800420617 /* Sources */,
 				A0D2CE3322D8B47800420617 /* Frameworks */,
 				A0D2CE3422D8B47800420617 /* Resources */,
+				EBED4D50DFFF73C790F3BBCC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,6 +261,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EBED4D50DFFF73C790F3BBCC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -266,6 +293,7 @@
 				A0D2CE4922D8B47B00420617 /* main.m in Sources */,
 				3A6A126022DA5EFF003DA61A /* TagTableViewCell.m in Sources */,
 				A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */,
+				3A02455C22DBC7D300AF6FDE /* GTVideo.m in Sources */,
 				3A6A126722DA61F4003DA61A /* GTTag.m in Sources */,
 				3A0BC46D22D8DDF5005B2F31 /* VideoLauncher.m in Sources */,
 			);

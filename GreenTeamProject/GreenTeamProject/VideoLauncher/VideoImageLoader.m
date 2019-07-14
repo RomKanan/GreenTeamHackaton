@@ -10,28 +10,20 @@
 
 @implementation VideoImageLoader
 
-- (void)loadImageAtURL:(NSString *)urlString {
-    NSURL *url = [NSURL URLWithString:urlString];
-    if (!url) {
-        return;
-    }
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    NSURLSessionDataTask *dataTask =  [NSURLSession.sharedSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (!data || error) {
-            
-            return;
-        }
-        NSError *jsonError;
-        NSDictionary *jsonResult = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
-        if (!jsonError) {
-            /*COMPLETION HANDLER.
-             Consider making a parameter, identifies size of required image: in response there are multiple sizes...
-             
-             */
-            NSLog(@"%@", jsonResult);
-        }
-    }];
-    [dataTask resume];
++ (instancetype)shared {
+    static VideoImageLoader *shared = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        shared = [VideoImageLoader new];
+    });
+    return shared;
+}
+
+- (void)loadImageAtVideoID:(NSString *)videoID
+         completionHandler:(void(^)(UIImage *image))completion {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://img.youtube.com/vi/%@/0.jpg", videoID]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    completion([UIImage imageWithData:data]);
 }
 
 @end
