@@ -11,7 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GTVideo : NSObject
+@property (strong,nonatomic) NSString *ID;
+@property (strong,nonatomic) NSURL *youtubeUrl;
+@property (strong,nonatomic) NSString *stringURL;
+@property (strong,nonatomic) NSString *name;
+@property (assign,nonatomic) NSTimeInterval lengh;
+@property (strong,nonatomic) NSMutableArray *tags;
 
+-(instancetype)initWithURL:(NSURL*)url;
 @end
 
 NS_ASSUME_NONNULL_END
