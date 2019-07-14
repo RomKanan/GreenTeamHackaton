@@ -21,7 +21,9 @@
     
     GTFistScreenViewController *viewController = [[GTFistScreenViewController alloc] init];
     
-    [self.window setRootViewController:viewController];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
+    [self.window setRootViewController:navigationController];
     [self.window makeKeyAndVisible];
     return YES;
 }
