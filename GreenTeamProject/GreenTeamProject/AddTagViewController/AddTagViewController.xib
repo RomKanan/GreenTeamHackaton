@@ -12,6 +12,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTagViewController">
             <connections>
+                <outlet property="chosenGroupLable" destination="TQO-V8-T5E" id="am2-lP-CIb"/>
+                <outlet property="containerScrollView" destination="hyU-gl-lBB" id="Lo8-9E-itO"/>
+                <outlet property="curentTimeLable" destination="Jrf-ep-A7h" id="oud-Cu-4gf"/>
+                <outlet property="groupPlaceholderLable" destination="Xxy-AS-wQO" id="VOJ-kM-x2s"/>
+                <outlet property="tagNameTextField" destination="QDf-H0-UCQ" id="BJx-Dj-4Yi"/>
+                <outlet property="timeSlider" destination="PHy-ZX-zQP" id="0qu-U2-w5d"/>
+                <outlet property="videoNameLable" destination="Dg6-i1-HR5" id="6gn-fk-cWe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

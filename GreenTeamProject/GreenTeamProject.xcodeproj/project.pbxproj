@@ -19,6 +19,8 @@
 		A01DE26722DB884800B59C15 /* AddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE26522DB884800B59C15 /* AddTagViewController.m */; };
 		A01DE26822DB884800B59C15 /* AddTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE26622DB884800B59C15 /* AddTagViewController.xib */; };
 		A01DE26B22DBA63700B59C15 /* GTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE26A22DBA63700B59C15 /* GTVideo.m */; };
+		A01DE27022DBD22A00B59C15 /* NewVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE26E22DBD22A00B59C15 /* NewVideoViewController.m */; };
+		A01DE27122DBD22A00B59C15 /* NewVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE26F22DBD22A00B59C15 /* NewVideoViewController.xib */; };
 		A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3A22D8B47800420617 /* AppDelegate.m */; };
 		A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3D22D8B47800420617 /* ViewController.m */; };
 		A0D2CE4122D8B47800420617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE3F22D8B47800420617 /* Main.storyboard */; };
@@ -49,6 +51,9 @@
 		A01DE26622DB884800B59C15 /* AddTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTagViewController.xib; sourceTree = "<group>"; };
 		A01DE26922DBA63700B59C15 /* GTVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideo.h; sourceTree = "<group>"; };
 		A01DE26A22DBA63700B59C15 /* GTVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideo.m; sourceTree = "<group>"; };
+		A01DE26D22DBD22A00B59C15 /* NewVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewVideoViewController.h; sourceTree = "<group>"; };
+		A01DE26E22DBD22A00B59C15 /* NewVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewVideoViewController.m; sourceTree = "<group>"; };
+		A01DE26F22DBD22A00B59C15 /* NewVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewVideoViewController.xib; sourceTree = "<group>"; };
 		A0D2CE3622D8B47800420617 /* GreenTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2CE3922D8B47800420617 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0D2CE3A22D8B47800420617 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -125,6 +130,16 @@
 			path = AddTagViewController;
 			sourceTree = "<group>";
 		};
+		A01DE26C22DBB90C00B59C15 /* AddNewVideoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A01DE26D22DBD22A00B59C15 /* NewVideoViewController.h */,
+				A01DE26E22DBD22A00B59C15 /* NewVideoViewController.m */,
+				A01DE26F22DBD22A00B59C15 /* NewVideoViewController.xib */,
+			);
+			path = AddNewVideoViewController;
+			sourceTree = "<group>";
+		};
 		A0D2CE2D22D8B47800420617 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +161,7 @@
 		A0D2CE3822D8B47800420617 /* GreenTeamProject */ = {
 			isa = PBXGroup;
 			children = (
+				A01DE26C22DBB90C00B59C15 /* AddNewVideoViewController */,
 				A01DE26322DB87F900B59C15 /* AddTagViewController */,
 				A01DE25622DB689900B59C15 /* RootViewController */,
 				3A6A125322D9ED75003DA61A /* GoogleService-Info.plist */,
@@ -236,6 +252,7 @@
 				A0D2CE4622D8B47B00420617 /* LaunchScreen.storyboard in Resources */,
 				3A6A125422D9ED75003DA61A /* GoogleService-Info.plist in Resources */,
 				A01DE26122DB6F8F00B59C15 /* CollectionViewCell.xib in Resources */,
+				A01DE27122DBD22A00B59C15 /* NewVideoViewController.xib in Resources */,
 				A01DE25B22DB68DD00B59C15 /* RootViewController.xib in Resources */,
 				A0D2CE4322D8B47B00420617 /* Assets.xcassets in Resources */,
 				A0D2CE4122D8B47800420617 /* Main.storyboard in Resources */,
@@ -298,6 +315,7 @@
 				3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */,
 				A0D2CE4922D8B47B00420617 /* main.m in Sources */,
 				A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */,
+				A01DE27022DBD22A00B59C15 /* NewVideoViewController.m in Sources */,
 				3A0BC46D22D8DDF5005B2F31 /* VideoLauncher.m in Sources */,
 				A01DE26022DB6F8F00B59C15 /* CollectionViewCell.m in Sources */,
 				A01DE26722DB884800B59C15 /* AddTagViewController.m in Sources */,

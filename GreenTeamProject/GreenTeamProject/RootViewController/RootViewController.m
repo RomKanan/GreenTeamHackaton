@@ -93,38 +93,7 @@ static NSString* const sliderCenter = @"center";
             self.videoHighlitedImageView.alpha = 1;
         }
 
-        
-//        let newCenterX = center.newValue!.x
-//
-//        let visionDistance = (self.textNavButton.center.x - self.voiceNavButton.center.x)
-//        let voiceCenterX = self.voiceNavButton.center.x
-//        let textCenterX = self.textNavButton.center.x
-//        let settCenterX = self.setNavButton.center.x
-//
-//
-//        if newCenterX <= voiceCenterX  {
-//            self.voiceSelectedImageView.alpha = 1
-//            self.textSelectedImageView.alpha = 0
-//            self.settSelectedImageView.alpha = 0
-//        } else if ((newCenterX > voiceCenterX) && (newCenterX <= textCenterX)) {
-//            let voiceAlpha = (textCenterX - newCenterX) / visionDistance
-//            let textAlpha = (newCenterX - voiceCenterX ) / visionDistance
-//            self.voiceSelectedImageView.alpha = voiceAlpha
-//            self.textSelectedImageView.alpha = textAlpha
-//            self.settSelectedImageView.alpha = 0
-//
-//        } else if ((newCenterX > textCenterX) && (newCenterX <= settCenterX)) {
-//            let textAlpha = (settCenterX - newCenterX ) / visionDistance
-//            let settAlpha = (newCenterX - textCenterX) / visionDistance
-//            self.voiceSelectedImageView.alpha = 0
-//            self.textSelectedImageView.alpha = textAlpha
-//            self.settSelectedImageView.alpha = settAlpha
-//
-//        } else if (newCenterX >= settCenterX) {
-//            self.voiceSelectedImageView.alpha = 0
-//            self.textSelectedImageView.alpha = 0
-//            self.settSelectedImageView.alpha = 1
-//        }
+
     }
 }
 

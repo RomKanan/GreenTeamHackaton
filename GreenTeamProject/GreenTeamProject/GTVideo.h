@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong,nonatomic) NSMutableArray *tags;
 
 -(instancetype)initWithURL:(NSURL*)url;
+-(instancetype)initWithLink:(NSString*)link;
 @end
 
 NS_ASSUME_NONNULL_END
