@@ -13,14 +13,11 @@
 #import "GTTopic.h"
 #import "GTTag.h"
 
-@interface GTFistScreenViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface GTFistScreenViewController ()
 @property (nonatomic, strong) NSMutableArray *items;
-@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation GTFistScreenViewController
-static NSString * const reuseTopicIdentifier = @"cellTopic";
-static NSString * const reuseTagIdentifier = @"cellTag";
 
 - (void)createTopics {
     GTTag *tag = [[GTTag alloc] initWithColor:[UIColor greenColor] name:@"TableView delegates"];
@@ -64,47 +61,6 @@ static NSString * const reuseTagIdentifier = @"cellTag";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    
-    
-//    [self.tableView registerClass:GTTagTableViewCell.class forCellReuseIdentifier:reuseTagIdentifier];
-//    [self.tableView registerClass:GTTopicTableViewCell.class forCellReuseIdentifier:reuseTopicIdentifier];
-//
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
-    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redirectToNextViewController:) name:@"RedirectToNextViewController" object:nil];
 }
-
-//- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-//    if ([self.items[indexPath.row] isKindOfClass:GTTopic.class]) {
-//        GTTopicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseTopicIdentifier forIndexPath:indexPath];
-//        cell.nameLabel.text = ((GTTopic *)self.items[indexPath.row]).name;
-//        return cell;
-//    } else if ([self.items[indexPath.row] isKindOfClass:GTTag.class]) {
-//        GTTagTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseTagIdentifier forIndexPath:indexPath];
-//        cell.nameLabel.text = ((GTTag *)self.items[indexPath.row]).name;
-//        return cell;
-//    } else {
-//        UITableViewCell *cell = [[UITableViewCell alloc] init];
-//        return cell;
-//    }
-//}
-//
-//- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.items.count;
-//}
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 50.f;
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//
-//}
-//
-//- (void)redirectToNextViewController:(NSNotification *)notification {
-//
-//}
 
 @end

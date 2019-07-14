@@ -26,6 +26,8 @@ static NSString * const reuseHeaderIdentifier = @"header";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.allowsSelection = NO;
+    
     [self.tableView registerClass:GTTagTableViewCell.class forCellReuseIdentifier:reuseTagIdentifier];
     [self.tableView registerClass:GTTopicTableViewCell.class forCellReuseIdentifier:reuseTopicIdentifier];
     [self.tableView registerClass:GTTableViewHeader.class forHeaderFooterViewReuseIdentifier:reuseHeaderIdentifier];
