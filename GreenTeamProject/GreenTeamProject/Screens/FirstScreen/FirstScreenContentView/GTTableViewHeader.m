@@ -28,6 +28,7 @@
     [self.backButton setImage:[UIImage imageNamed:@"arrow_left"] forState:UIControlStateNormal];
     [self.backButton setTintColor:[UIColor blackColor]];
     [self.backButton addTarget:self action:@selector(backButtonDidPress:) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)backButtonDidPress:(id)sender {

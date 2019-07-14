@@ -32,6 +32,8 @@ static NSString * const reuseHeaderIdentifier = @"header";
     [self.tableView registerClass:GTTopicTableViewCell.class forCellReuseIdentifier:reuseTopicIdentifier];
     [self.tableView registerClass:GTTableViewHeader.class forHeaderFooterViewReuseIdentifier:reuseHeaderIdentifier];
     
+    self.tableView.estimatedRowHeight = 50.f;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redirectToNextViewController:) name:@"RedirectToNextViewController" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redirectToPreviosViewController:) name:@"RedirectToPreviosViewController" object:nil];
@@ -67,10 +69,13 @@ static NSString * const reuseHeaderIdentifier = @"header";
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if ([self.parentViewController isKindOfClass:GTTableViewController.class]) {
         GTTableViewHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseHeaderIdentifier];
+        header.contentView.backgroundColor = [UIColor colorWithRed:255.f/255.f green:36.f/255.f blue:0.f alpha:1.f];
         return header;
     }
     else {
-        return [[UITableViewHeaderFooterView alloc] init];
+        UITableViewHeaderFooterView *header = [[UITableViewHeaderFooterView alloc] init];
+        header.contentView.backgroundColor = [UIColor colorWithRed:255.f/255.f green:36.f/255.f blue:0.f alpha:1.f];
+        return header;
     }
 }
 

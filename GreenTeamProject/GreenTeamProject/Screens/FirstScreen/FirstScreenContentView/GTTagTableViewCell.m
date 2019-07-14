@@ -27,30 +27,41 @@
 
 - (void)setup {
     self.colorView = [[UIView alloc] init];
-    [self.contentView addSubview:self.colorView];
+    [self addSubview:self.colorView];
+    self.colorView.backgroundColor = [UIColor redColor];
     self.colorView.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-        [self.colorView.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:5],
-        [self.colorView.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor],
-        [self.contentView.widthAnchor constraintEqualToConstant:10],
+        [self.colorView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:10],
+        [self.colorView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
+        [self.colorView.widthAnchor constraintEqualToConstant:10],
         [self.colorView.heightAnchor constraintEqualToConstant:10]]];
     
     self.nameLabel = [[UILabel alloc] init];
-    [self.contentView addSubview:self.nameLabel];
+    [self addSubview:self.nameLabel];
     self.nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-        [self.nameLabel.leadingAnchor constraintEqualToAnchor:self.colorView.trailingAnchor constant:5],
-        [self.nameLabel.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor]]];
+        [self.nameLabel.leadingAnchor constraintEqualToAnchor:self.colorView.trailingAnchor constant:8],
+        [self.nameLabel.centerYAnchor constraintEqualToAnchor:self.centerYAnchor]]];
+    self.nameLabel.numberOfLines = 0;
     
-    self.redirectingButton = [[UIButton alloc] init];
+    self.redirectingButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.contentView addSubview:self.redirectingButton];
     self.redirectingButton.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-        [self.redirectingButton.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-5],
-        [self.redirectingButton.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor]]];
+        [self.redirectingButton.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-10],
+        [self.redirectingButton.centerYAnchor constraintEqualToAnchor:self.centerYAnchor],
+        [self.redirectingButton.heightAnchor constraintEqualToConstant:15],
+        [self.redirectingButton.widthAnchor constraintEqualToConstant:30]]];
+    
+    [self.redirectingButton setImage:[UIImage imageNamed:@"playButton"] forState:UIControlStateNormal];
     
     [self.redirectingButton addTarget:self action:@selector(movedButtonDidPress:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.layer.borderWidth = .5f;
+    self.layer.borderColor = [[UIColor colorWithRed:223.f/255.f green:223.f/255.f blue:223.f/255.f alpha:1.f] CGColor];
 }
+
+// Redirect to viewCotroller
 
 - (void)movedButtonDidPress:(id)sender {
 }

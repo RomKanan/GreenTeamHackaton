@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GreenTeamProject/Screens/FirstScreen/FirstScreenContentView/GTTableViewController.m"
-            timestampString = "584823278.9153841"
+            timestampString = "584826123.818555"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "-redirectToNextViewController:"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GreenTeamProject/Screens/FirstScreen/FirstScreenContentView/GTTableViewController.m"
-            timestampString = "584823278.915889"
+            timestampString = "584826123.818652"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "-redirectToNextViewController:"
             landmarkType = "7">
          </BreakpointContent>

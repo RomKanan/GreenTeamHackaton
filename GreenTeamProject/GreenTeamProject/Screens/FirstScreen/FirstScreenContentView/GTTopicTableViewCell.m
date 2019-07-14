@@ -37,6 +37,7 @@
     [NSLayoutConstraint activateConstraints:@[
         [self.nameLabel.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:5],
         [self.nameLabel.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor]]];
+    self.nameLabel.numberOfLines = 0;
     
     self.moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.contentView addSubview:self.moreButton];
@@ -48,6 +49,9 @@
     [self.moreButton setImage:[UIImage imageNamed:@"Icon-20"] forState:UIControlStateNormal];
     [self.moreButton setTintColor:[UIColor blackColor]];
     [self.moreButton addTarget:self action:@selector(moreButtomDidPress:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.layer.borderWidth = .5f;
+    self.layer.borderColor = [[UIColor colorWithRed:223.f/255.f green:223.f/255.f blue:223.f/255.f alpha:1.f] CGColor];
 }
 
 - (void)moreButtomDidPress:(id)sender {
