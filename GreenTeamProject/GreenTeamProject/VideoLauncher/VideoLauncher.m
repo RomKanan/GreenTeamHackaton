@@ -8,15 +8,15 @@
 
 #import "VideoLauncher.h"
 #import "VideoLauncherConstants.h"
-#import "VideoPlayerView.h"
 #import "VideoLauncher TableView/TagTableViewCell.h"
 #import "VideoLauncher TableView/GTTag.h"
 #import "VideoLauncher TableView/VideoNameHeaderView.h"
+#import <WebKit/WebKit.h>
 
 @interface VideoLauncher () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIView *videoPlayerPageView;
-@property (nonatomic, strong) VideoPlayerView *videoPlayerView;
+@property (nonatomic, strong) WKWebView *videoPlayerWebView;
 @property (nonatomic, strong) UITableView *tagsTableView;
 @property (nonatomic, strong) UIButton *addTagButton;
 
@@ -57,19 +57,25 @@
 }
 
 - (void)setupVideoPlayerView {
-    _videoPlayerView = [VideoPlayerView new];
-    _videoPlayerView.backgroundColor = [UIColor clearColor];
-    [_videoPlayerPageView addSubview:_videoPlayerView];
-    _videoPlayerView.translatesAutoresizingMaskIntoConstraints = NO;
+    WKWebViewConfiguration *webViewConfiguration = [[WKWebViewConfiguration alloc] init];
+    webViewConfiguration.allowsInlineMediaPlayback = NO;
+    _videoPlayerWebView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:webViewConfiguration];
+    
+    NSURL *url = [[NSURL alloc] initWithString:@"https://www.youtube.com/embed/VXu2Od_lCe8?start=68"];
+    NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
+    [_videoPlayerWebView loadRequest:urlRequest];
+    _videoPlayerWebView.translatesAutoresizingMaskIntoConstraints = NO;
     UIWindow *keyWindow = UIApplication.sharedApplication.keyWindow;
     if (!keyWindow) {
         return;
     }
+    [_videoPlayerPageView addSubview:_videoPlayerWebView];
+    _videoPlayerWebView.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-                                              [_videoPlayerView.leadingAnchor constraintEqualToAnchor:_videoPlayerPageView.leadingAnchor],
-                                              [_videoPlayerView.topAnchor constraintEqualToAnchor:_videoPlayerPageView.topAnchor],
-                                              [_videoPlayerView.widthAnchor constraintEqualToConstant:keyWindow.frame.size.width],
-                                              [_videoPlayerView.heightAnchor constraintEqualToConstant:keyWindow.frame.size.width * videoLauncherConstants.heightProportion / videoLauncherConstants.widthProportion],
+                                              [_videoPlayerWebView.leadingAnchor constraintEqualToAnchor:_videoPlayerPageView.leadingAnchor],
+                                              [_videoPlayerWebView.topAnchor constraintEqualToAnchor:_videoPlayerPageView.topAnchor],
+                                              [_videoPlayerWebView.widthAnchor constraintEqualToConstant:keyWindow.frame.size.width],
+                                              [_videoPlayerWebView.heightAnchor constraintEqualToConstant:keyWindow.frame.size.width * videoLauncherConstants.heightProportion / videoLauncherConstants.widthProportion],
                                               ]
      ];
 }
@@ -98,7 +104,7 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
     [NSLayoutConstraint activateConstraints:@[
                                               [_tagsTableView.leadingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.leadingAnchor],
                                               [_tagsTableView.trailingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.trailingAnchor],
-                                              [_tagsTableView.topAnchor constraintEqualToAnchor:_videoPlayerView.bottomAnchor],
+                                              [_tagsTableView.topAnchor constraintEqualToAnchor:_videoPlayerWebView.bottomAnchor],
                                               [_tagsTableView.bottomAnchor constraintEqualToAnchor:_videoPlayerPageView.bottomAnchor],
                                               ]
      ];
@@ -140,7 +146,7 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
     //give VideoPlayerView an image of video to place it instead of video while loading
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //to see loading indicator...
-        [self.videoPlayerView setVideoID:videoID];
+//        [self.videoPlayerView setVideoID:videoID];
     });
 }
 
