@@ -7,34 +7,35 @@
 //
 
 #import "GTFistScreenViewController.h"
-#import "GTTopicTableViewCell.h"
+#import "GTTopicCollectionViewCell.h"
 #import "GTTopic.h"
+#import "GTTag.h"
 
-@interface GTFistScreenViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) NSArray<GTTopic *> *items;
-@property (nonatomic, strong) UITableView *tableView;
+@interface GTFistScreenViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@property (nonatomic, strong) NSMutableArray<GTTopic *> *items;
+@property (nonatomic, strong) UICollectionView *collectionView;
 @end
 
 @implementation GTFistScreenViewController
 
-static NSString * const reuseIdentifier = @"cellId";
+static NSString * const topicIdentifier = @"cellTopic";
 
 - (void)createTopics {
-    GTTag *tag = [[GTTag alloc] initWithColor:[UIColor greenColor] andName:@"TableView delegates"];
+    GTTag *tag = [[GTTag alloc] initWithColor:[UIColor greenColor] name:@"TableView delegates"];
     
-    GTTopic *topic1 = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[tag]] topics:[[NSMutableArray alloc] initWithArray:@[]] andName:@"TableView"];
+    GTTopic *topic1 = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[tag]] topics:[[NSMutableArray alloc] initWithArray:@[]] name:@"TableView"];
     
-    GTTopic *topic2 = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[]] andName:@"App Life Cycle"];
-    GTTopic *topic3 = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[]] andName:@"CollectionView"];
+    GTTopic *topic2 = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[]] name:@"App Life Cycle"];
+    GTTopic *topic3 = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[]] name:@"CollectionView"];
     
-    GTTopic *topicS = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[topic1, topic2, topic3]] andName:@"Objective C"];
+    GTTopic *topicS = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[topic1, topic2, topic3]] name:@"Objective C"];
     
-    GTTopic *topicF = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[]] andName:@"Swift"];
+    GTTopic *topicF = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[]] name:@"Swift"];
     
-    GTTopic *topic = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[topicF, topicS]] andName:@"iOS"];
-    GTTopic *stopic = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[]] andName:@"Coocking"];
+    GTTopic *topic = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[topicF, topicS]] name:@"iOS"];
+    GTTopic *stopic = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[]] topics:[[NSMutableArray alloc] initWithArray:@[]] name:@"Coocking"];
     
-    self.items = @[topic, stopic];
+    self.items = [[NSMutableArray alloc] initWithArray: @[topic, stopic]];
 }
 
 - (void)loadView {
@@ -42,55 +43,91 @@ static NSString * const reuseIdentifier = @"cellId";
     
     [self createTopics];
     
-    self.tableView = [[UITableView alloc] init];
-    [self.view addSubview:self.tableView];
-    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+    [self.view addSubview:self.collectionView];
+    self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-        [self.tableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:10],
-        [self.tableView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-10],
-        [self.tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:10],
-        [self.tableView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant:-5]]];
+        [self.collectionView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
+        [self.collectionView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
+        [self.collectionView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
+        [self.collectionView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor]]];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     
-    [self.tableView registerClass:GTTopicTableViewCell.class forCellReuseIdentifier:reuseIdentifier];
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
     
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 300;
+    [self.collectionView registerClass:GTTopicCollectionViewCell.class forCellWithReuseIdentifier:topicIdentifier];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tableViewRowHeightDidChanged:) name:@"TableViewDidChanged" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"name" object:nil];
 }
 
-#pragma mark - TableViewDataSource
-
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    GTTopicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier forIndexPath:indexPath];
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    GTTopicCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:topicIdentifier forIndexPath:indexPath];
+    NSMutableArray *arrayForItems = [[NSMutableArray alloc] initWithArray:self.items[indexPath.item].topics];
+    [arrayForItems addObjectsFromArray:self.items[indexPath.item].tags];
     
-    NSMutableArray *arrayForTopicsAndTags = [[NSMutableArray alloc] initWithArray:self.items[indexPath.row].topics];
-    [arrayForTopicsAndTags addObjectsFromArray:self.items[indexPath.row].tags];
-    
-    cell.nameLabel.text = self.items[indexPath.row].name;
-    cell.manager.items = arrayForTopicsAndTags;
-    [cell.moreButton setTitle:@"more" forState:UIControlStateNormal];
-    [cell.moreButton setTitle:@"less" forState:UIControlStateHighlighted];
-    
+    cell.collectionView.hidden = self.items[indexPath.item].isSelected ? NO : YES;
+    cell.nameLabel.text = self.items[indexPath.item].name;
+    cell.manager.items = arrayForItems;
+    cell.supertopic = self.items[indexPath.item];
     return cell;
 }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _items.count;
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.items.count;
 }
 
-#pragma mark - Notifications
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    NSLog(@"%f",  [self calculateCurrentContentHeightForItemAtIndex:indexPath.item]);
+    return CGSizeMake(self.view.frame.size.width, [self calculateCurrentContentHeightForItemAtIndex:indexPath.item]);
+}
 
-- (void)tableViewRowHeightDidChanged:(NSNotification *)notification {
-    [self.tableView beginUpdates];
-    [self.tableView endUpdates];
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.f;
+}
+
+- (void)reload {
+    [self.collectionView reloadData];
+}
+
+- (CGFloat)calculateCurrentContentHeightForItemAtIndex:(NSInteger)index {
+    
+    return [self calculateSubtopicsHeightOfTopic:self.items[index]];
+}
+
+- (CGFloat)calculateSubtopicsHeightOfTopic:(GTTopic *)topic {
+    CGFloat defaultHeight = 50.f;
+    CGFloat height = defaultHeight;
+    if (topic.topics == nil && topic.tags == nil) {
+        return 0.f;
+    }
+    
+    if (topic.isSelected) {
+        if (topic.topics != nil) {
+            for (GTTopic *topicItem in topic.topics) {
+                height += [self calculateSubtopicsHeightOfTopic:topicItem];
+            }
+        }
+        if (topic.tags != nil) {
+            for (GTTag *tag in topic.tags) {
+                height += defaultHeight;
+            }
+        }
+    }
+    return height;
+}
+
+- (CGFloat)calculateTagsHeightOfTopic:(GTTopic *)topic {
+    return 0;
 }
 
 @end

@@ -1,8 +1,8 @@
 //
-//  GTTagTableViewCell.h
+//  GTTagCollectionViewCell.h
 //  GreenTeamProject
 //
-//  Created by Диана Тынкован on 7/12/19.
+//  Created by Диана Тынкован on 7/13/19.
 //  Copyright © 2019 GreenTeam. All rights reserved.
 //
 
@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GTTagTableViewCell : UITableViewCell
+@interface GTTagCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UIButton *movedButton;
-@property (nonatomic, strong) UIView *colorView;
+@property (nonatomic, strong) UIView *tagColorView;
 @end
 
 NS_ASSUME_NONNULL_END

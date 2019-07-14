@@ -10,9 +10,7 @@
 
 @implementation GTTag
 
-@synthesize color, name, url, time;
-
-- (instancetype)initWithColor:(UIColor *)color andName:(NSString *)name {
+- (instancetype)initWithColor:(UIColor *)color name:(NSString *)name {
     if (self = [super init]) {
         self.name = name;
         self.color = color;

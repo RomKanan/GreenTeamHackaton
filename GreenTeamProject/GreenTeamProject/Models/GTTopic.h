@@ -15,8 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSMutableArray<GTTag *> *tags;
 @property (nonatomic, strong) NSMutableArray<GTTopic *> *topics;
+@property (nonatomic, assign) BOOL isSelected;
 - (instancetype)initWithTags:(NSMutableArray *)tags topics:(NSMutableArray *)topics
-                     andName:(NSString *)name;
+                     name:(NSString *)name;
 @end
 
 NS_ASSUME_NONNULL_END

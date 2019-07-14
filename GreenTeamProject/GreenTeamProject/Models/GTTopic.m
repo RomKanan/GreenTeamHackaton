@@ -10,14 +10,13 @@
 
 @implementation GTTopic
 
-@synthesize topics, tags, name;
-
 - (instancetype)initWithTags:(NSMutableArray *)tags topics:(NSMutableArray *)topics
-                     andName:(NSString *)name {
+                     name:(NSString *)name {
     if (self = [super init]) {
         self.topics = topics;
         self.tags = tags;
         self.name = name;
+        self.isSelected = NO;
     }
     return self;
 }

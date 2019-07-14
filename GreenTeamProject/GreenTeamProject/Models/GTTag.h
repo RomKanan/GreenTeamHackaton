@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSString *time;
-- (instancetype)initWithColor:(UIColor *)color andName:(NSString *)name;
+- (instancetype)initWithColor:(UIColor *)color name:(NSString *)name;
 @end
 
 NS_ASSUME_NONNULL_END
