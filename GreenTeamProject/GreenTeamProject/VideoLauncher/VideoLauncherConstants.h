@@ -20,6 +20,8 @@ struct VideoLauncherConstants {
     CGFloat buttonHeight;
     CGFloat buttonWidth;
     CGFloat tableViewActionButtonSpacing;
+    CGFloat headerHeight;
+    NSString * const addButtonImageName;
 };
 
 extern const struct VideoLauncherConstants videoLauncherConstants;

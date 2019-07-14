@@ -16,8 +16,8 @@
             <rect key="frame" x="0.0" y="0.0" width="420" height="252"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-Xa-j4d">
-                    <rect key="frame" x="178" y="111" width="64" height="30"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-Xa-j4d">
+                    <rect key="frame" x="0.0" y="44" width="420" height="174"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -25,13 +25,15 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="g7u-Xa-j4d" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="U69-1W-WDU"/>
-                <constraint firstItem="g7u-Xa-j4d" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Y7A-4O-fzt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="g7u-Xa-j4d" secondAttribute="trailing" id="UI4-1i-tmK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="g7u-Xa-j4d" secondAttribute="bottom" id="XFy-8H-w1C"/>
+                <constraint firstItem="g7u-Xa-j4d" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hmT-It-2Yt"/>
+                <constraint firstItem="g7u-Xa-j4d" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="u5B-RC-8hq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="nameLabel" destination="g7u-Xa-j4d" id="EYZ-ej-LFe"/>
+                <outlet property="nameLabel" destination="g7u-Xa-j4d" id="T6N-x5-SLM"/>
             </connections>
             <point key="canvasLocation" x="142.02898550724638" y="-73.660714285714278"/>
         </view>

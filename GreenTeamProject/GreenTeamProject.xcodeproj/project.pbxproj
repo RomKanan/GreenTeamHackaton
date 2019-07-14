@@ -20,6 +20,7 @@
 		3A6A126922DA6DCC003DA61A /* TagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A126822DA6DCC003DA61A /* TagTableViewCell.xib */; };
 		3A6A128D22DA9556003DA61A /* VideoNameHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A128C22DA9556003DA61A /* VideoNameHeaderView.m */; };
 		3A6A129022DA95A6003DA61A /* VideoNameHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A128F22DA95A6003DA61A /* VideoNameHeaderView.xib */; };
+		3A6A12B522DB68EC003DA61A /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A12B422DB68EC003DA61A /* UIColor+CustomColor.m */; };
 		A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3A22D8B47800420617 /* AppDelegate.m */; };
 		A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3D22D8B47800420617 /* ViewController.m */; };
 		A0D2CE4122D8B47800420617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE3F22D8B47800420617 /* Main.storyboard */; };
@@ -49,6 +50,8 @@
 		3A6A128B22DA9556003DA61A /* VideoNameHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoNameHeaderView.h; sourceTree = "<group>"; };
 		3A6A128C22DA9556003DA61A /* VideoNameHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoNameHeaderView.m; sourceTree = "<group>"; };
 		3A6A128F22DA95A6003DA61A /* VideoNameHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoNameHeaderView.xib; sourceTree = "<group>"; };
+		3A6A12B322DB68EC003DA61A /* UIColor+CustomColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColor.h"; sourceTree = "<group>"; };
+		3A6A12B422DB68EC003DA61A /* UIColor+CustomColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
 		6C2C87BEC9B63EEE5D7230FD /* libPods-GreenTeamProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GreenTeamProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9622248EAA1788714FE1736C /* Pods-GreenTeamProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTeamProject.debug.xcconfig"; path = "Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A0D2CE3622D8B47800420617 /* GreenTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +120,15 @@
 			path = "VideoLauncher TableView";
 			sourceTree = "<group>";
 		};
+		3A6A12B622DB68F1003DA61A /* UIColor Category */ = {
+			isa = PBXGroup;
+			children = (
+				3A6A12B322DB68EC003DA61A /* UIColor+CustomColor.h */,
+				3A6A12B422DB68EC003DA61A /* UIColor+CustomColor.m */,
+			);
+			path = "UIColor Category";
+			sourceTree = "<group>";
+		};
 		A0D2CE2D22D8B47800420617 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +161,7 @@
 				A0D2CE4722D8B47B00420617 /* Info.plist */,
 				A0D2CE4822D8B47B00420617 /* main.m */,
 				3A0BC46E22D8DE00005B2F31 /* VideoLauncher */,
+				3A6A12B622DB68F1003DA61A /* UIColor Category */,
 			);
 			path = GreenTeamProject;
 			sourceTree = "<group>";
@@ -173,7 +186,7 @@
 				A0D2CE3222D8B47800420617 /* Sources */,
 				A0D2CE3322D8B47800420617 /* Frameworks */,
 				A0D2CE3422D8B47800420617 /* Resources */,
-				98459A48BDFE7D95221267B8 /* [CP] Copy Pods Resources */,
+				0123F2A55687EBC4AD89F103 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +247,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0123F2A55687EBC4AD89F103 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		74AACAF208C5EAEC1E049C9A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,23 +286,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		98459A48BDFE7D95221267B8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -284,6 +297,7 @@
 				A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */,
 				3A6A125722DA13C8003DA61A /* VideoImageLoader.m in Sources */,
 				3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */,
+				3A6A12B522DB68EC003DA61A /* UIColor+CustomColor.m in Sources */,
 				A0D2CE4922D8B47B00420617 /* main.m in Sources */,
 				3A6A126022DA5EFF003DA61A /* TagTableViewCell.m in Sources */,
 				A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */,
@@ -440,7 +454,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = RSGreenTeam.GreenTeam;
+				PRODUCT_BUNDLE_IDENTIFIER = RSGreenTeam.GreenTeamProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,7 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = RSGreenTeam.GreenTeam;
+				PRODUCT_BUNDLE_IDENTIFIER = RSGreenTeam.GreenTeamProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

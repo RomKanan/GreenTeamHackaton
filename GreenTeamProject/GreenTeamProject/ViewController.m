@@ -9,6 +9,13 @@
 #import "ViewController.h"
 #import "VideoLauncher/VideoLauncher.h"
 #import "VideoLauncher/VideoImageLoader.h"
+#import "VideoLauncher/VideoLauncher TableView/GTTag.h"
+
+@interface ViewController ()
+
+@property (nonatomic, strong) VideoLauncher *videoLauncher;
+
+@end
 
 @interface ViewController ()
 
@@ -35,8 +42,13 @@
 //    return;
     self.statusBarHidden = YES;
     [self setNeedsStatusBarAppearanceUpdate];
-    VideoLauncher *videoLauncher = [VideoLauncher new];
-    [videoLauncher showVideoWithID:videoID];
+    NSString *videoName = @"VIDEO NAME";
+    GTTag *firstTag = [[GTTag alloc] initWithURLString:@"URL_1" color:[UIColor blackColor] name:@"TAG_NAME_1" time:1];
+    GTTag *secondTag = [[GTTag alloc] initWithURLString:@"URL_2" color:[UIColor redColor] name:@"TAG_NAME_2" time:2];
+    GTTag *thirdTag = [[GTTag alloc] initWithURLString:@"URL_3" color:[UIColor blueColor] name:@"TAG_NAME_3" time:3];
+    NSMutableArray *tags = [NSMutableArray arrayWithArray:@[firstTag, secondTag, thirdTag]];
+    self.videoLauncher = [[VideoLauncher alloc] initWithTags:tags videoName:videoName];
+    [self.videoLauncher showVideoWithID:videoID];
 }
 
 @end

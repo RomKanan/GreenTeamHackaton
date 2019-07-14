@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VideoLauncher : NSObject
 
+- (instancetype)initWithTags:(NSMutableArray *)tags videoName:(NSString *)videoName;
 - (void)showVideoWithID:(NSString *)videoID;
 
 @end

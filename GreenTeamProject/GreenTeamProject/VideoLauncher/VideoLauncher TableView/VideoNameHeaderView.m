@@ -7,6 +7,7 @@
 //
 
 #import "VideoNameHeaderView.h"
+#import "../../UIColor Category/UIColor+CustomColor.h"
 
 @interface VideoNameHeaderView ()
 
@@ -18,7 +19,16 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.backgroundColor = [UIColor lightGrayColor];
+    self.backgroundColor = [UIColor blackColor];
+    self.nameLabel.textColor = [UIColor blackColor];
+    [self editBackgroundView];
+}
+
+- (void)editBackgroundView {
+    UIView *backgroundView = [UIView new];
+    [backgroundView setOpaque:YES];
+    backgroundView.backgroundColor = [UIColor colorFromRGBString:@"0xF9F9F9"];
+    self.backgroundView = backgroundView;
 }
 
 - (void)setVideoName:(NSString *)videoName {

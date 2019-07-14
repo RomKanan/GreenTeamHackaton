@@ -18,7 +18,6 @@
 @property (nonatomic, strong) UIView *videoPlayerPageView;
 @property (nonatomic, strong) VideoPlayerView *videoPlayerView;
 @property (nonatomic, strong) UITableView *tagsTableView;
-@property (nonatomic, strong) UIButton *deleteTagButton; // + to swipe deletion
 @property (nonatomic, strong) UIButton *addTagButton;
 
 @property (nonatomic, strong) NSMutableArray<GTTag *> *tags; //create tag class with appropriate info
@@ -31,16 +30,12 @@
 - (instancetype)initWithTags:(NSMutableArray *)tags videoName:(NSString *)videoName {
     self = [super init];
     if (self) {
-//        tags = [NSMutableArray new];
-        GTTag *firstTag = [[GTTag alloc] initWithURLString:@"123" color:[UIColor blackColor] name:@"HELLO!" time:1];
-        GTTag *secondTag = [[GTTag alloc] initWithURLString:@"234" color:[UIColor redColor] name:@"TO!" time:2];
-        GTTag *thirdTag = [[GTTag alloc] initWithURLString:@"345" color:[UIColor blueColor] name:@"EVERYBODY!" time:3];
-        tags = [NSMutableArray arrayWithArray:@[firstTag, secondTag, thirdTag]];
         [self setupVideoPlayerPageView];
         [self setupVideoPlayerView];
         [self setupTagsTableView];
         [self setupActionButtons];
         _tags = tags;
+        _videoName = videoName;
     }
     return self;
 }
@@ -74,7 +69,7 @@
                                               [_videoPlayerView.leadingAnchor constraintEqualToAnchor:_videoPlayerPageView.leadingAnchor],
                                               [_videoPlayerView.topAnchor constraintEqualToAnchor:_videoPlayerPageView.topAnchor],
                                               [_videoPlayerView.widthAnchor constraintEqualToConstant:keyWindow.frame.size.width],
-                                              [_videoPlayerView.heightAnchor constraintEqualToConstant:keyWindow.frame.size.width * videoLauncherConstants.widthProportion / videoLauncherConstants.heightProportion],
+                                              [_videoPlayerView.heightAnchor constraintEqualToConstant:keyWindow.frame.size.width * videoLauncherConstants.heightProportion / videoLauncherConstants.widthProportion],
                                               ]
      ];
 }
@@ -85,7 +80,9 @@
         return;
     }
     _tagsTableView = [UITableView new];
-    _tagsTableView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    _tagsTableView.tableFooterView = [UIView new];
+    _tagsTableView.backgroundColor = [UIColor whiteColor];
+    //edit separator to leading = superView leading
     _tagsTableView.delegate = self;
     _tagsTableView.dataSource = self;
     [_tagsTableView registerNib:[UINib nibWithNibName:videoLauncherConstants.tagCellIdentifier
@@ -102,30 +99,32 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
                                               [_tagsTableView.leadingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.leadingAnchor],
                                               [_tagsTableView.trailingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.trailingAnchor],
                                               [_tagsTableView.topAnchor constraintEqualToAnchor:_videoPlayerView.bottomAnchor],
-                                              [_tagsTableView.heightAnchor constraintEqualToConstant:keyWindow.frame.size.height - videoLauncherConstants.buttonHeight - videoLauncherConstants.tableViewActionButtonSpacing],
+                                              [_tagsTableView.bottomAnchor constraintEqualToAnchor:_videoPlayerPageView.bottomAnchor],
                                               ]
      ];
 }
 
 - (void)setupActionButtons {
-    _deleteTagButton = [UIButton new];
     _addTagButton = [UIButton new];
-    [_videoPlayerPageView addSubview:_deleteTagButton];
+    _addTagButton.backgroundColor = [UIColor clearColor];
     [_videoPlayerPageView addSubview:_addTagButton];
-    _deleteTagButton.translatesAutoresizingMaskIntoConstraints = NO;
     _addTagButton.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-                                              [_deleteTagButton.leadingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.leadingAnchor],
-                                              [_deleteTagButton.bottomAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.bottomAnchor],
-                                              [_deleteTagButton.heightAnchor constraintEqualToConstant:videoLauncherConstants.buttonHeight],
-                                              [_deleteTagButton.widthAnchor constraintEqualToConstant:videoLauncherConstants.buttonWidth],
-                                              [_addTagButton.trailingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.trailingAnchor],
-                                              [_deleteTagButton.bottomAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.bottomAnchor],
-                                              [_deleteTagButton.heightAnchor constraintEqualToConstant:videoLauncherConstants.buttonHeight],
-                                              [_deleteTagButton.widthAnchor constraintEqualToConstant:videoLauncherConstants.buttonWidth],
+                                              [_addTagButton.trailingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.trailingAnchor
+                                                                                           constant:-videoLauncherConstants.tableViewActionButtonSpacing],
+                                              [_addTagButton.bottomAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.bottomAnchor
+                                                                                         constant:-videoLauncherConstants.tableViewActionButtonSpacing],
+                                              [_addTagButton.heightAnchor constraintEqualToConstant:videoLauncherConstants.buttonHeight],
+                                              [_addTagButton.widthAnchor constraintEqualToConstant:videoLauncherConstants.buttonWidth],
                                               ]
      ];
-    //add actions...
+    [_addTagButton setImage:[UIImage imageNamed:videoLauncherConstants.addButtonImageName] forState:UIControlStateNormal];
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addTagButtonPressed:)];
+    [_addTagButton addGestureRecognizer:tapGestureRecognizer];
+}
+
+- (void)addTagButtonPressed:(UITapGestureRecognizer *)tapGestureRecognizer {
+    //add tag
 }
 
 - (void)showVideoWithID:(NSString *)videoID {
@@ -159,10 +158,15 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
     return videoLauncherConstants.cellHeight;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return videoLauncherConstants.headerHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TagTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:videoLauncherConstants.tagCellIdentifier
                                                              forIndexPath:indexPath];
+    [cell setVideoTag:self.tags[indexPath.row]];
     return cell;
 }
 
@@ -172,8 +176,8 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
     return headerView;
 }
 
-
-- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView
+leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *actionTitle = @"Delete";
     __typeof(self) __weak weakSelf = self;
     UIContextualAction *action =

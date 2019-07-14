@@ -24,10 +24,26 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
+        self.backgroundColor = [UIColor lightGrayColor];
         [self setupPlayerView];
+        [NSNotificationCenter.defaultCenter
+         addObserver:self
+         selector:@selector(didEnterFullScreenVideo:)
+         name:UIWindowDidBecomeVisibleNotification
+         object:nil
+         ];
     }
     return self;
+}
+
+- (void)didEnterFullScreenVideo:(NSNotification *)notification {
+    NSLog(@"Enter full screen");
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    view.backgroundColor = [UIColor redColor];
+    if ([notification.object isMemberOfClass:UIWindow.class]) {
+        UIWindow *window = notification.object;
+        [window addSubview:view];
+    }
 }
 
 - (void)setupPlayerView {
@@ -47,11 +63,13 @@
     _playerView.delegate = self;
     [_loadingIndicator startAnimating];
     _controlsView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    
 }
 
 - (void)setVideoID:(NSString *)ID {
     [_playerView loadWithVideoId:ID];
     [_playerView playVideo]; // doesn't work at this place:(
+    
 }
 
 #pragma mark - YTPlayerViewDelegate
@@ -82,8 +100,8 @@
 }
 
 - (void)playerView:(nonnull YTPlayerView *)playerView receivedError:(YTPlayerError)error {
-    //HANDLE ERROR: start indicating if it has been stopped...
     NSLog(@"%li", error);
+    [self.loadingIndicator startAnimating];
 }
 
 - (void)playerView:(nonnull YTPlayerView *)playerView didPlayTime:(float)playTime {
