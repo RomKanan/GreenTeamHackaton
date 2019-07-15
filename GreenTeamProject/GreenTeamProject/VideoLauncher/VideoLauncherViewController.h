@@ -1,8 +1,8 @@
 //
-//  VideoLauncher.h
+//  VideoLauncherViewController.h
 //  GreenTeamProject
 //
-//  Created by Anton Sipaylo on 7/12/19.
+//  Created by Anton Sipaylo on 7/15/19.
 //  Copyright © 2019 GreenTeam. All rights reserved.
 //
 
@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface VideoLauncher : NSObject
+@interface VideoLauncherViewController : UIViewController
 
 @property (weak, nonatomic) id<VideoLauncherListener> videoLauncherListener;
 @property (weak, nonatomic) id<TagsTableViewListener> tagsTableViewListener;

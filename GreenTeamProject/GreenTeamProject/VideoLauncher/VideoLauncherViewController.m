@@ -1,18 +1,20 @@
 //
-//  VideoLauncher.m
+//  VideoLauncherViewController.m
 //  GreenTeamProject
 //
-//  Created by Anton Sipaylo on 7/12/19.
+//  Created by Anton Sipaylo on 7/15/19.
 //  Copyright © 2019 GreenTeam. All rights reserved.
 //
 
-#import "VideoLauncher.h"
+#import "VideoLauncherViewController.h"
+
+#import "VideoLauncherViewController.h"
 #import "VideoLauncherConstants.h"
 #import "VideoLauncher TableView/TagTableViewCell.h"
 #import "VideoLauncher TableView/VideoNameHeaderView.h"
 #import "WKYTPlayerView.h"
 
-@interface VideoLauncher () <UITableViewDelegate, UITableViewDataSource, WKYTPlayerViewDelegate, TagTableViewCellListener>
+@interface VideoLauncherViewController () <UITableViewDelegate, UITableViewDataSource, WKYTPlayerViewDelegate, TagTableViewCellListener>
 
 @property (nonatomic, strong) UIView *videoPlayerPageView;
 @property (nonatomic, strong) WKYTPlayerView *videoPlayerView;
@@ -22,44 +24,43 @@
 @property (nonatomic, strong) UITableView *tagsTableView;
 @property (nonatomic, strong) UIButton *addTagButton;
 
-@property (nonatomic, strong) NSMutableArray<GTTag *> *tags; //create tag class with appropriate info
+@property (nonatomic, strong) GTVideo *video;
 @property (nonatomic, strong) NSString *videoName;
-@property (nonatomic, strong) NSString *videoID;
 @property (nonatomic, strong) NSString *videoAuthor;
 @property (nonatomic, strong) NSString *videoImageURL;
 @property (nonatomic, assign) NSTimeInterval startSeconds;
 
 @end
 
-@implementation VideoLauncher
+@implementation VideoLauncherViewController
 
 - (instancetype)initWithVideo:(GTVideo *)video {
     if (self = [super init]) {
-        _tags = video.tags;
-        _videoID = video.ID;
+        _video = video;
         _startSeconds = 0;
-        [self commonInit:video];
     }
     return self;
 }
 
 - (instancetype)initWithTag:(GTTag *)tag {
     if (self = [super init]) {
-        _tags = [NSMutableArray new];
-        _videoID = tag.video.ID;
+        _video = tag.video;
         _startSeconds = tag.time;
-        [self commonInit:tag.video];
     }
     return self;
 }
 
-- (void)commonInit:(GTVideo *)video {
+- (void)viewDidLoad {
+    [self commonInit];
+}
+
+- (void)commonInit {
     [self setupVideoPlayerPageView];
     [self setupVideoPlayerView];
     [self setupTagsTableView];
     [self setupActionButtons];
     __typeof(self) __weak weakSelf = self;
-    [video loadVideoInfo:^(NSMutableDictionary *info) {
+    [self.video loadVideoInfo:^(NSMutableDictionary *info) {
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.videoName = info[@"name"];
             weakSelf.videoAuthor = info[@"author"];
@@ -188,7 +189,7 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
 - (void)play {
     if ([self expandVideoPlayerView]) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.videoPlayerView loadWithVideoId:self.videoID];
+            [self.videoPlayerView loadWithVideoId:self.video.ID];
         });
     }
 }
@@ -233,7 +234,7 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.tags.count;
+    return self.video.tags.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -249,7 +250,7 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
     TagTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:videoLauncherConstants.tagCellIdentifier
                                                              forIndexPath:indexPath];
     cell.listener = self;
-    [cell setVideoTag:self.tags[indexPath.row]];
+    [cell setVideoTag:self.video.tags[indexPath.row]];
     return cell;
 }
 
@@ -270,8 +271,8 @@ leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
                                           handler:^(UIContextualAction * _Nonnull action,
                                                     __kindof UIView * _Nonnull sourceView,
                                                     void (^ _Nonnull completionHandler)(BOOL)) {
-                                              [weakSelf.tagsTableViewListener deleteTag:weakSelf.tags[indexPath.row]];
-                                              [weakSelf.tags removeObjectAtIndex:indexPath.row];
+                                              [weakSelf.tagsTableViewListener deleteTag:weakSelf.video.tags[indexPath.row]];
+                                              [weakSelf.video.tags removeObjectAtIndex:indexPath.row];
                                               [tableView deleteRowsAtIndexPaths:@[indexPath]
                                                                withRowAnimation:UITableViewRowAnimationLeft
                                                ];
@@ -297,3 +298,4 @@ leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 @end
+
