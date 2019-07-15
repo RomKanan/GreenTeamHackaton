@@ -14,7 +14,6 @@
 #import "GTTag.h"
 
 @interface GTTableViewController ()
-
 @end
 
 @implementation GTTableViewController
@@ -49,11 +48,14 @@ static NSString * const reuseHeaderIdentifier = @"header";
     return self.items.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.items[indexPath.row] isKindOfClass:GTTopic.class]) {
         GTTopicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseTopicIdentifier forIndexPath:indexPath];
         cell.nameLabel.text = ((GTTopic *)self.items[indexPath.row]).name;
+        if (((GTTopic *)self.items[indexPath.row]).topics.count > 0)
+            cell.subCountLabel.text = [NSString stringWithFormat:@"subs:%ld", ((GTTopic *)self.items[indexPath.row]).topics.count];
+        if (((GTTopic *)self.items[indexPath.row]).tags.count > 0)
+            cell.tagCountLabel.text = [NSString stringWithFormat:@"tags:%ld", ((GTTopic *)self.items[indexPath.row]).tags.count];
         cell.topic = ((GTTopic *)self.items[indexPath.row]);
         return cell;
     } else if ([self.items[indexPath.row] isKindOfClass:GTTag.class]) {
@@ -70,6 +72,7 @@ static NSString * const reuseHeaderIdentifier = @"header";
     if ([self.parentViewController isKindOfClass:GTTableViewController.class]) {
         GTTableViewHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseHeaderIdentifier];
         header.contentView.backgroundColor = [UIColor colorWithRed:255.f/255.f green:36.f/255.f blue:0.f alpha:1.f];
+        header.directoryNameLabel.text = self.parentDirectoryName;
         return header;
     }
     else {
@@ -79,8 +82,8 @@ static NSString * const reuseHeaderIdentifier = @"header";
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.f;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40.f;
 }
 
 - (void)redirectToNextViewController:(NSNotification *)notification {
@@ -97,8 +100,8 @@ static NSString * const reuseHeaderIdentifier = @"header";
                                               [tableViewController.tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
                                               [tableViewController.tableView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor]]];
     
-    NSLog(@"%@", notification.userInfo[@"items"]);
     tableViewController.items = notification.userInfo[@"items"];
+    tableViewController.parentDirectoryName = notification.userInfo[@"topicName"];
 }
 
 - (void)redirectToPreviosViewController:(NSNotification *)notification {

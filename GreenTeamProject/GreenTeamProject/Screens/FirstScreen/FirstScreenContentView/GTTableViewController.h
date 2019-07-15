@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GTTableViewController : UITableViewController
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSString *parentDirectoryName;
 @end
 
 NS_ASSUME_NONNULL_END
