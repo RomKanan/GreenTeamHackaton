@@ -14,6 +14,7 @@
 #import "GTTag.h"
 
 @interface GTTableViewController ()
+
 @end
 
 @implementation GTTableViewController
@@ -89,7 +90,6 @@ static NSString * const reuseHeaderIdentifier = @"header";
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        
         id object = self.items[indexPath.row];
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         [self.items removeObjectAtIndex:indexPath.row];
