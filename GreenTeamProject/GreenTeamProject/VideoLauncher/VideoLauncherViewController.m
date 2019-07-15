@@ -15,11 +15,10 @@
 
 @interface VideoLauncherViewController () <UITableViewDelegate, UITableViewDataSource, WKYTPlayerViewDelegate, TagTableViewCellListener>
 
-@property (nonatomic, strong) UIView *videoPlayerPageView;
+
 @property (nonatomic, strong) WKYTPlayerView *videoPlayerView;
 @property (nonatomic, strong) UIImageView *videoPlayerImageView;
 @property (nonatomic, strong) UIActivityIndicatorView *videoPlayerIndicator;
-@property (nonatomic, strong) NSLayoutConstraint *videoPlayerViewHeightConstraint;
 @property (nonatomic, strong) UITableView *tagsTableView;
 @property (nonatomic, strong) UIButton *addTagButton;
 
@@ -54,7 +53,6 @@
 }
 
 - (void)commonInit {
-    [self setupVideoPlayerPageView];
     [self setupVideoPlayerView];
     [self setupTagsTableView];
     [self setupActionButtons];
@@ -74,52 +72,42 @@
     }];
 }
 
-- (void)setupVideoPlayerPageView {
-    UIWindow *keyWindow = UIApplication.sharedApplication.keyWindow;
-    if (!keyWindow) {
-        return;
-    }
-    _videoPlayerPageView = [UIView new];
-    CGSize size = keyWindow.frame.size;
-    self.videoPlayerPageView.frame =
-    CGRectMake(size.width - videoLauncherConstants.videoPlayerVideStartWidth,
-               size.height - videoLauncherConstants.videoPlayerVideStartHeight,
-               videoLauncherConstants.videoPlayerVideStartWidth,
-               videoLauncherConstants.videoPlayerVideStartHeight);
-    [keyWindow addSubview:self.videoPlayerPageView];
-    self.videoPlayerPageView.backgroundColor = [UIColor whiteColor];
+- (void)viewDidLayoutSubviews {
+    
 }
 
 - (void)setupVideoPlayerView {
-    UIWindow *keyWindow = UIApplication.sharedApplication.keyWindow;
-    if (!keyWindow) {
-        return;
-    }
     _videoPlayerView = [WKYTPlayerView new];
     _videoPlayerView.delegate = self;
-    [_videoPlayerPageView addSubview:_videoPlayerView];
+    [self.view addSubview:_videoPlayerView];
     _videoPlayerView.translatesAutoresizingMaskIntoConstraints = NO;
-    _videoPlayerViewHeightConstraint =
-    [_videoPlayerView.heightAnchor constraintEqualToConstant:keyWindow.frame.size.width * videoLauncherConstants.heightProportion / videoLauncherConstants.widthProportion];
     [NSLayoutConstraint activateConstraints:@[
-                                              [_videoPlayerView.leadingAnchor constraintEqualToAnchor:_videoPlayerPageView.leadingAnchor],
-                                              [_videoPlayerView.topAnchor constraintEqualToAnchor:_videoPlayerPageView.topAnchor],
-                                              [_videoPlayerView.widthAnchor constraintEqualToConstant:keyWindow.frame.size.width],
-                                              _videoPlayerViewHeightConstraint,
+                                              [_videoPlayerView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
+                                              [_videoPlayerView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
+                                              [_videoPlayerView.widthAnchor constraintEqualToConstant:self.view.frame.size.width],
+                                              [_videoPlayerView.heightAnchor constraintEqualToConstant:self.view.frame.size.width * videoLauncherConstants.heightProportion / videoLauncherConstants.widthProportion]
                                               ]
      ];
     [_videoPlayerView setHidden:YES];
-    CGRect commonFrame = CGRectMake(0,
-                                    0,
-                                    keyWindow.frame.size.width,
-                                    _videoPlayerViewHeightConstraint.constant);
-    _videoPlayerIndicator = [[UIActivityIndicatorView alloc] initWithFrame:commonFrame];
-    _videoPlayerImageView =
-    [[UIImageView alloc] initWithFrame:commonFrame];
+    _videoPlayerIndicator = [UIActivityIndicatorView new];
+    _videoPlayerImageView = [UIImageView new];
+    [self.view addSubview:_videoPlayerImageView];
+    [self.view addSubview:_videoPlayerIndicator];
+    _videoPlayerIndicator.translatesAutoresizingMaskIntoConstraints = NO;
+    _videoPlayerImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+                                              [_videoPlayerIndicator.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                                              [_videoPlayerIndicator.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+                                              [_videoPlayerIndicator.widthAnchor constraintEqualToConstant:self.view.frame.size.width],
+                                              [_videoPlayerIndicator.heightAnchor constraintEqualToConstant:self.view.frame.size.width * videoLauncherConstants.heightProportion / videoLauncherConstants.widthProportion],
+                                              [_videoPlayerImageView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                                              [_videoPlayerImageView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
+                                              [_videoPlayerImageView.widthAnchor constraintEqualToConstant:self.view.frame.size.width],
+                                              [_videoPlayerImageView.heightAnchor constraintEqualToConstant:self.view.frame.size.width * videoLauncherConstants.heightProportion / videoLauncherConstants.widthProportion],
+                                              ]
+     ];
     _videoPlayerIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
     [_videoPlayerIndicator startAnimating];
-    [self.videoPlayerPageView addSubview:_videoPlayerImageView];
-    [self.videoPlayerPageView addSubview:_videoPlayerIndicator];
 }
 
 - (void)loadImageAtURL:(NSString *)imageURL
@@ -130,10 +118,6 @@
 }
 
 - (void)setupTagsTableView {
-    UIWindow *keyWindow = UIApplication.sharedApplication.keyWindow;
-    if (!keyWindow) {
-        return;
-    }
     _tagsTableView = [UITableView new];
     _tagsTableView.tableFooterView = [UIView new];
     _tagsTableView.backgroundColor = [UIColor whiteColor];
@@ -147,13 +131,13 @@
                                                bundle:nil]
 forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdentifier
      ];
-    [_videoPlayerPageView addSubview:_tagsTableView];
+    [self.view addSubview:_tagsTableView];
     _tagsTableView.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-                                              [_tagsTableView.leadingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.leadingAnchor],
-                                              [_tagsTableView.trailingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.trailingAnchor],
+                                              [_tagsTableView.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor],
+                                              [_tagsTableView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
                                               [_tagsTableView.topAnchor constraintEqualToAnchor:_videoPlayerView.bottomAnchor],
-                                              [_tagsTableView.bottomAnchor constraintEqualToAnchor:_videoPlayerPageView.bottomAnchor],
+                                              [_tagsTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor],
                                               ]
      ];
 }
@@ -161,12 +145,12 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
 - (void)setupActionButtons {
     _addTagButton = [UIButton new];
     _addTagButton.backgroundColor = [UIColor clearColor];
-    [_videoPlayerPageView addSubview:_addTagButton];
+    [self.view addSubview:_addTagButton];
     _addTagButton.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
-                                              [_addTagButton.trailingAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.trailingAnchor
+                                              [_addTagButton.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor
                                                                                            constant:-videoLauncherConstants.tableViewActionButtonSpacing],
-                                              [_addTagButton.bottomAnchor constraintEqualToAnchor:_videoPlayerPageView.safeAreaLayoutGuide.bottomAnchor
+                                              [_addTagButton.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor
                                                                                          constant:-videoLauncherConstants.tableViewActionButtonSpacing],
                                               [_addTagButton.heightAnchor constraintEqualToConstant:videoLauncherConstants.buttonHeight],
                                               [_addTagButton.widthAnchor constraintEqualToConstant:videoLauncherConstants.buttonWidth],
@@ -186,44 +170,9 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
 }
 
 - (void)play {
-    if ([self expandVideoPlayerView]) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.videoPlayerView loadWithVideoId:self.video.ID];
-        });
-    }
-}
-
-- (BOOL)expandVideoPlayerView {
-    UIWindow *keyWindow = UIApplication.sharedApplication.keyWindow;
-    if (!keyWindow) {
-        return NO;
-    }
-    [self.tagsTableView setHidden:NO];
-    [self.addTagButton setHidden:NO];
-    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.videoPlayerPageView.frame = keyWindow.frame;
-        self.videoPlayerViewHeightConstraint.constant = keyWindow.frame.size.width * videoLauncherConstants.heightProportion /  videoLauncherConstants.widthProportion;
-    } completion:^(BOOL finished) {
-    }];
-    return YES;
-}
-
-- (BOOL)compressVideoPlayerView {
-    UIWindow *keyWindow = UIApplication.sharedApplication.keyWindow;
-    if (!keyWindow) {
-        return NO;
-    }
-    [self.tagsTableView setHidden:YES];
-    [self.addTagButton setHidden:YES];
-    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.videoPlayerPageView.frame = CGRectMake(keyWindow.frame.size.width - videoLauncherConstants.videoPlayerVideMiddleWidth,
-                                                    keyWindow.frame.size.height - videoLauncherConstants.videoPlayerVideMiddleHeight,
-                                                    videoLauncherConstants.videoPlayerVideMiddleWidth,
-                                                    videoLauncherConstants.videoPlayerVideMiddleHeight);
-        self.videoPlayerViewHeightConstraint.constant = videoLauncherConstants.videoPlayerVideMiddleHeight;
-    } completion:^(BOOL finished) {
-    }];
-    return YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.videoPlayerView loadWithVideoId:self.video.ID];
+    });
 }
 
 #pragma mark - UITableViewDelegate/DataSource
@@ -294,6 +243,10 @@ leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
     [_videoPlayerImageView setHidden:YES];
     [_videoPlayerView setHidden:NO];
     [_videoPlayerIndicator stopAnimating];
+}
+
+- (void)playerView:(WKYTPlayerView *)playerView receivedError:(WKYTPlayerError)error {
+    NSLog(@"%li", error);
 }
 
 @end

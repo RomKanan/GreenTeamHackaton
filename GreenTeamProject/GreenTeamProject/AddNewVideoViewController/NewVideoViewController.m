@@ -81,7 +81,7 @@
         self.containerConstraint.constant = CGRectGetHeight(self.view.bounds);
     } completion:nil];
     
-    
+    [videoVC play];
     
     
 }

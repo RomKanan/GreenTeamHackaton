@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		19CBACA14D6CA92F6C634580 /* libPods-GreenTeamProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2C87BEC9B63EEE5D7230FD /* libPods-GreenTeamProject.a */; };
 		3A02456922DCBED200AF6FDE /* VideoLauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A02456822DCBED200AF6FDE /* VideoLauncherViewController.m */; };
+		3A02456B22DCD2D400AF6FDE /* Core in Resources */ = {isa = PBXBuildFile; fileRef = 3A02456A22DCD2D400AF6FDE /* Core */; };
 		A01DE25A22DB68DD00B59C15 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE25822DB68DD00B59C15 /* RootViewController.m */; };
 		A01DE25B22DB68DD00B59C15 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE25922DB68DD00B59C15 /* RootViewController.xib */; };
 		A01DE26022DB6F8F00B59C15 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE25E22DB6F8F00B59C15 /* CollectionViewCell.m */; };
@@ -44,6 +45,7 @@
 		0599DB01E989C32B998EAE88 /* Pods-GreenTeamProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTeamProject.release.xcconfig"; path = "Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject.release.xcconfig"; sourceTree = "<group>"; };
 		3A02456722DCBED200AF6FDE /* VideoLauncherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLauncherViewController.h; sourceTree = "<group>"; };
 		3A02456822DCBED200AF6FDE /* VideoLauncherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLauncherViewController.m; sourceTree = "<group>"; };
+		3A02456A22DCD2D400AF6FDE /* Core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Core; path = GreenTeamProject/Core; sourceTree = SOURCE_ROOT; };
 		6C2C87BEC9B63EEE5D7230FD /* libPods-GreenTeamProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GreenTeamProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9622248EAA1788714FE1736C /* Pods-GreenTeamProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTeamProject.debug.xcconfig"; path = "Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A01DE25722DB68DD00B59C15 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				A01DE35F22DCB4FF00B59C15 /* VideoLauncher TableView */,
 				3A02456722DCBED200AF6FDE /* VideoLauncherViewController.h */,
 				3A02456822DCBED200AF6FDE /* VideoLauncherViewController.m */,
+				3A02456A22DCD2D400AF6FDE /* Core */,
 			);
 			path = VideoLauncher;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				A0D2CE4622D8B47B00420617 /* LaunchScreen.storyboard in Resources */,
 				A01DE37422DCB4FF00B59C15 /* TagTableViewCell.xib in Resources */,
 				A01DE26122DB6F8F00B59C15 /* CollectionViewCell.xib in Resources */,
+				3A02456B22DCD2D400AF6FDE /* Core in Resources */,
 				A01DE27122DBD22A00B59C15 /* NewVideoViewController.xib in Resources */,
 				A01DE25B22DB68DD00B59C15 /* RootViewController.xib in Resources */,
 				A0D2CE4322D8B47B00420617 /* Assets.xcassets in Resources */,
