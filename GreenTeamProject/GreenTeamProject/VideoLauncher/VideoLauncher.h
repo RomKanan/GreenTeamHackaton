@@ -19,16 +19,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-//@protocol TagsTableViewListener <NSObject>
-//
-//@required
-//- (void)delete
-//
-//@end
+@protocol TagsTableViewListener <NSObject>
+
+@required
+- (void)deleteTag:(GTTag *)tag;
+
+@end
 
 @interface VideoLauncher : NSObject
 
-@property (weak, nonatomic) id<VideoLauncherListener> listener;
+@property (weak, nonatomic) id<VideoLauncherListener> videoLauncherListener;
+@property (weak, nonatomic) id<TagsTableViewListener> tagsTableViewListener;
 
 - (instancetype)initWithVideo:(GTVideo *)video;
 - (instancetype)initWithTag:(GTTag *)tag;

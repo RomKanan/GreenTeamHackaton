@@ -270,6 +270,7 @@ leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
                                           handler:^(UIContextualAction * _Nonnull action,
                                                     __kindof UIView * _Nonnull sourceView,
                                                     void (^ _Nonnull completionHandler)(BOOL)) {
+                                              [weakSelf.tagsTableViewListener deleteTag:weakSelf.tags[indexPath.row]];
                                               [weakSelf.tags removeObjectAtIndex:indexPath.row];
                                               [tableView deleteRowsAtIndexPaths:@[indexPath]
                                                                withRowAnimation:UITableViewRowAnimationLeft
