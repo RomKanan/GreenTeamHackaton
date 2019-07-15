@@ -8,17 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		19CBACA14D6CA92F6C634580 /* libPods-GreenTeamProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2C87BEC9B63EEE5D7230FD /* libPods-GreenTeamProject.a */; };
-		3A0BC46D22D8DDF5005B2F31 /* VideoLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */; };
-		3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BC47022D8DF5E005B2F31 /* VideoLauncherConstants.m */; };
-		3A0BC47422D8E3E6005B2F31 /* VideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BC47322D8E3E6005B2F31 /* VideoPlayerView.m */; };
-		3A6A125422D9ED75003DA61A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A6A125322D9ED75003DA61A /* GoogleService-Info.plist */; };
 		A01DE25A22DB68DD00B59C15 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE25822DB68DD00B59C15 /* RootViewController.m */; };
 		A01DE25B22DB68DD00B59C15 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE25922DB68DD00B59C15 /* RootViewController.xib */; };
 		A01DE26022DB6F8F00B59C15 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE25E22DB6F8F00B59C15 /* CollectionViewCell.m */; };
 		A01DE26122DB6F8F00B59C15 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE25F22DB6F8F00B59C15 /* CollectionViewCell.xib */; };
 		A01DE26722DB884800B59C15 /* AddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE26522DB884800B59C15 /* AddTagViewController.m */; };
 		A01DE26822DB884800B59C15 /* AddTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE26622DB884800B59C15 /* AddTagViewController.xib */; };
-		A01DE26B22DBA63700B59C15 /* GTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE26A22DBA63700B59C15 /* GTVideo.m */; };
 		A01DE27022DBD22A00B59C15 /* NewVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE26E22DBD22A00B59C15 /* NewVideoViewController.m */; };
 		A01DE27122DBD22A00B59C15 /* NewVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE26F22DBD22A00B59C15 /* NewVideoViewController.xib */; };
 		A01DE2A322DBF01500B59C15 /* GTFistScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE29322DBF01500B59C15 /* GTFistScreenViewController.m */; };
@@ -27,7 +22,17 @@
 		A01DE2A622DBF01500B59C15 /* GTTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE29922DBF01500B59C15 /* GTTableViewHeader.m */; };
 		A01DE2A722DBF01500B59C15 /* GTTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE29C22DBF01500B59C15 /* GTTagTableViewCell.m */; };
 		A01DE2A822DBF01500B59C15 /* GTTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE2A022DBF01500B59C15 /* GTTopic.m */; };
-		A01DE2A922DBF01500B59C15 /* GTTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE2A122DBF01500B59C15 /* GTTag.m */; };
+		A01DE36D22DCB4FF00B59C15 /* GTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE35822DCB4FF00B59C15 /* GTVideo.m */; };
+		A01DE36E22DCB4FF00B59C15 /* Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE35A22DCB4FF00B59C15 /* Defaults.m */; };
+		A01DE36F22DCB4FF00B59C15 /* VideoLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE35B22DCB4FF00B59C15 /* VideoLauncher.m */; };
+		A01DE37022DCB4FF00B59C15 /* VideoLauncherConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE35D22DCB4FF00B59C15 /* VideoLauncherConstants.m */; };
+		A01DE37122DCB4FF00B59C15 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE36322DCB4FF00B59C15 /* TagTableViewCell.m */; };
+		A01DE37222DCB4FF00B59C15 /* VideoNameHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE36422DCB4FF00B59C15 /* VideoNameHeaderView.xib */; };
+		A01DE37322DCB4FF00B59C15 /* VideoNameHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE36522DCB4FF00B59C15 /* VideoNameHeaderView.m */; };
+		A01DE37422DCB4FF00B59C15 /* TagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE36622DCB4FF00B59C15 /* TagTableViewCell.xib */; };
+		A01DE37522DCB4FF00B59C15 /* GTTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE36722DCB4FF00B59C15 /* GTTag.m */; };
+		A01DE37622DCB4FF00B59C15 /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE36A22DCB4FF00B59C15 /* UIColor+CustomColor.m */; };
+		A01DE37722DCB4FF00B59C15 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE36B22DCB4FF00B59C15 /* YTPlayerView.m */; };
 		A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3A22D8B47800420617 /* AppDelegate.m */; };
 		A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3D22D8B47800420617 /* ViewController.m */; };
 		A0D2CE4122D8B47800420617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE3F22D8B47800420617 /* Main.storyboard */; };
@@ -38,13 +43,6 @@
 
 /* Begin PBXFileReference section */
 		0599DB01E989C32B998EAE88 /* Pods-GreenTeamProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTeamProject.release.xcconfig"; path = "Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject.release.xcconfig"; sourceTree = "<group>"; };
-		3A0BC46B22D8DDF5005B2F31 /* VideoLauncher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLauncher.h; sourceTree = "<group>"; };
-		3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLauncher.m; sourceTree = "<group>"; };
-		3A0BC46F22D8DF5E005B2F31 /* VideoLauncherConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLauncherConstants.h; sourceTree = "<group>"; };
-		3A0BC47022D8DF5E005B2F31 /* VideoLauncherConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLauncherConstants.m; sourceTree = "<group>"; };
-		3A0BC47222D8E3E6005B2F31 /* VideoPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayerView.h; sourceTree = "<group>"; };
-		3A0BC47322D8E3E6005B2F31 /* VideoPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerView.m; sourceTree = "<group>"; };
-		3A6A125322D9ED75003DA61A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6C2C87BEC9B63EEE5D7230FD /* libPods-GreenTeamProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GreenTeamProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9622248EAA1788714FE1736C /* Pods-GreenTeamProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GreenTeamProject.debug.xcconfig"; path = "Target Support Files/Pods-GreenTeamProject/Pods-GreenTeamProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A01DE25722DB68DD00B59C15 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
@@ -56,8 +54,6 @@
 		A01DE26422DB884800B59C15 /* AddTagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddTagViewController.h; sourceTree = "<group>"; };
 		A01DE26522DB884800B59C15 /* AddTagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddTagViewController.m; sourceTree = "<group>"; };
 		A01DE26622DB884800B59C15 /* AddTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTagViewController.xib; sourceTree = "<group>"; };
-		A01DE26922DBA63700B59C15 /* GTVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideo.h; sourceTree = "<group>"; };
-		A01DE26A22DBA63700B59C15 /* GTVideo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideo.m; sourceTree = "<group>"; };
 		A01DE26D22DBD22A00B59C15 /* NewVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewVideoViewController.h; sourceTree = "<group>"; };
 		A01DE26E22DBD22A00B59C15 /* NewVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewVideoViewController.m; sourceTree = "<group>"; };
 		A01DE26F22DBD22A00B59C15 /* NewVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewVideoViewController.xib; sourceTree = "<group>"; };
@@ -71,10 +67,28 @@
 		A01DE29B22DBF01500B59C15 /* GTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTableViewController.h; sourceTree = "<group>"; };
 		A01DE29C22DBF01500B59C15 /* GTTagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTagTableViewCell.m; sourceTree = "<group>"; };
 		A01DE29D22DBF01500B59C15 /* GTFistScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFistScreenViewController.h; sourceTree = "<group>"; };
-		A01DE29F22DBF01500B59C15 /* GTTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTag.h; sourceTree = "<group>"; };
 		A01DE2A022DBF01500B59C15 /* GTTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTopic.m; sourceTree = "<group>"; };
-		A01DE2A122DBF01500B59C15 /* GTTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTag.m; sourceTree = "<group>"; };
 		A01DE2A222DBF01500B59C15 /* GTTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTopic.h; sourceTree = "<group>"; };
+		A01DE35722DCB4FF00B59C15 /* VideoLauncher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoLauncher.h; sourceTree = "<group>"; };
+		A01DE35822DCB4FF00B59C15 /* GTVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTVideo.m; path = ../VideoLauncher/GTVideo.m; sourceTree = "<group>"; };
+		A01DE35922DCB4FF00B59C15 /* VideoLauncherConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoLauncherConstants.h; sourceTree = "<group>"; };
+		A01DE35A22DCB4FF00B59C15 /* Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Defaults.m; sourceTree = "<group>"; };
+		A01DE35B22DCB4FF00B59C15 /* VideoLauncher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoLauncher.m; sourceTree = "<group>"; };
+		A01DE35C22DCB4FF00B59C15 /* GTVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTVideo.h; path = ../VideoLauncher/GTVideo.h; sourceTree = "<group>"; };
+		A01DE35D22DCB4FF00B59C15 /* VideoLauncherConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoLauncherConstants.m; sourceTree = "<group>"; };
+		A01DE35E22DCB4FF00B59C15 /* Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defaults.h; sourceTree = "<group>"; };
+		A01DE36022DCB4FF00B59C15 /* VideoNameHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoNameHeaderView.h; sourceTree = "<group>"; };
+		A01DE36122DCB4FF00B59C15 /* TagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTableViewCell.h; sourceTree = "<group>"; };
+		A01DE36222DCB4FF00B59C15 /* GTTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTag.h; sourceTree = "<group>"; };
+		A01DE36322DCB4FF00B59C15 /* TagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTableViewCell.m; sourceTree = "<group>"; };
+		A01DE36422DCB4FF00B59C15 /* VideoNameHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoNameHeaderView.xib; sourceTree = "<group>"; };
+		A01DE36522DCB4FF00B59C15 /* VideoNameHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoNameHeaderView.m; sourceTree = "<group>"; };
+		A01DE36622DCB4FF00B59C15 /* TagTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagTableViewCell.xib; sourceTree = "<group>"; };
+		A01DE36722DCB4FF00B59C15 /* GTTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTag.m; sourceTree = "<group>"; };
+		A01DE36922DCB4FF00B59C15 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
+		A01DE36A22DCB4FF00B59C15 /* UIColor+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
+		A01DE36B22DCB4FF00B59C15 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
+		A01DE36C22DCB4FF00B59C15 /* UIColor+CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColor.h"; sourceTree = "<group>"; };
 		A0D2CE3622D8B47800420617 /* GreenTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2CE3922D8B47800420617 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0D2CE3A22D8B47800420617 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -105,19 +119,6 @@
 				6C2C87BEC9B63EEE5D7230FD /* libPods-GreenTeamProject.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3A0BC46E22D8DE00005B2F31 /* VideoLauncher */ = {
-			isa = PBXGroup;
-			children = (
-				3A0BC46F22D8DF5E005B2F31 /* VideoLauncherConstants.h */,
-				3A0BC47022D8DF5E005B2F31 /* VideoLauncherConstants.m */,
-				3A0BC46B22D8DDF5005B2F31 /* VideoLauncher.h */,
-				3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */,
-				3A0BC47222D8E3E6005B2F31 /* VideoPlayerView.h */,
-				3A0BC47322D8E3E6005B2F31 /* VideoPlayerView.m */,
-			);
-			path = VideoLauncher;
 			sourceTree = "<group>";
 		};
 		A01DE25622DB689900B59C15 /* RootViewController */ = {
@@ -197,19 +198,61 @@
 		A01DE29E22DBF01500B59C15 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A01DE29F22DBF01500B59C15 /* GTTag.h */,
+				A01DE36222DCB4FF00B59C15 /* GTTag.h */,
+				A01DE36722DCB4FF00B59C15 /* GTTag.m */,
+				A01DE35C22DCB4FF00B59C15 /* GTVideo.h */,
+				A01DE35822DCB4FF00B59C15 /* GTVideo.m */,
 				A01DE2A022DBF01500B59C15 /* GTTopic.m */,
-				A01DE2A122DBF01500B59C15 /* GTTag.m */,
 				A01DE2A222DBF01500B59C15 /* GTTopic.h */,
-				A01DE26922DBA63700B59C15 /* GTVideo.h */,
-				A01DE26A22DBA63700B59C15 /* GTVideo.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A01DE35622DCB4FF00B59C15 /* VideoLauncher */ = {
+			isa = PBXGroup;
+			children = (
+				A01DE35722DCB4FF00B59C15 /* VideoLauncher.h */,
+				A01DE35922DCB4FF00B59C15 /* VideoLauncherConstants.h */,
+				A01DE35A22DCB4FF00B59C15 /* Defaults.m */,
+				A01DE35B22DCB4FF00B59C15 /* VideoLauncher.m */,
+				A01DE35D22DCB4FF00B59C15 /* VideoLauncherConstants.m */,
+				A01DE35E22DCB4FF00B59C15 /* Defaults.h */,
+				A01DE35F22DCB4FF00B59C15 /* VideoLauncher TableView */,
+			);
+			name = VideoLauncher;
+			path = GreenTeamProject/VideoLauncher;
+			sourceTree = "<group>";
+		};
+		A01DE35F22DCB4FF00B59C15 /* VideoLauncher TableView */ = {
+			isa = PBXGroup;
+			children = (
+				A01DE36022DCB4FF00B59C15 /* VideoNameHeaderView.h */,
+				A01DE36122DCB4FF00B59C15 /* TagTableViewCell.h */,
+				A01DE36322DCB4FF00B59C15 /* TagTableViewCell.m */,
+				A01DE36422DCB4FF00B59C15 /* VideoNameHeaderView.xib */,
+				A01DE36522DCB4FF00B59C15 /* VideoNameHeaderView.m */,
+				A01DE36622DCB4FF00B59C15 /* TagTableViewCell.xib */,
+			);
+			path = "VideoLauncher TableView";
+			sourceTree = "<group>";
+		};
+		A01DE36822DCB4FF00B59C15 /* UIColor Category */ = {
+			isa = PBXGroup;
+			children = (
+				A01DE36922DCB4FF00B59C15 /* YTPlayerView.h */,
+				A01DE36A22DCB4FF00B59C15 /* UIColor+CustomColor.m */,
+				A01DE36B22DCB4FF00B59C15 /* YTPlayerView.m */,
+				A01DE36C22DCB4FF00B59C15 /* UIColor+CustomColor.h */,
+			);
+			name = "UIColor Category";
+			path = "GreenTeamProject/UIColor Category";
 			sourceTree = "<group>";
 		};
 		A0D2CE2D22D8B47800420617 = {
 			isa = PBXGroup;
 			children = (
+				A01DE36822DCB4FF00B59C15 /* UIColor Category */,
+				A01DE35622DCB4FF00B59C15 /* VideoLauncher */,
 				A0D2CE3822D8B47800420617 /* GreenTeamProject */,
 				A0D2CE3722D8B47800420617 /* Products */,
 				BB9391A4AE60DE17F95221AE /* Pods */,
@@ -233,7 +276,6 @@
 				A01DE26C22DBB90C00B59C15 /* AddNewVideoViewController */,
 				A01DE26322DB87F900B59C15 /* AddTagViewController */,
 				A01DE25622DB689900B59C15 /* RootViewController */,
-				3A6A125322D9ED75003DA61A /* GoogleService-Info.plist */,
 				A0D2CE3922D8B47800420617 /* AppDelegate.h */,
 				A0D2CE3A22D8B47800420617 /* AppDelegate.m */,
 				A0D2CE3C22D8B47800420617 /* ViewController.h */,
@@ -243,7 +285,6 @@
 				A0D2CE4422D8B47B00420617 /* LaunchScreen.storyboard */,
 				A0D2CE4722D8B47B00420617 /* Info.plist */,
 				A0D2CE4822D8B47B00420617 /* main.m */,
-				3A0BC46E22D8DE00005B2F31 /* VideoLauncher */,
 			);
 			path = GreenTeamProject;
 			sourceTree = "<group>";
@@ -317,11 +358,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0D2CE4622D8B47B00420617 /* LaunchScreen.storyboard in Resources */,
-				3A6A125422D9ED75003DA61A /* GoogleService-Info.plist in Resources */,
+				A01DE37422DCB4FF00B59C15 /* TagTableViewCell.xib in Resources */,
 				A01DE26122DB6F8F00B59C15 /* CollectionViewCell.xib in Resources */,
 				A01DE27122DBD22A00B59C15 /* NewVideoViewController.xib in Resources */,
 				A01DE25B22DB68DD00B59C15 /* RootViewController.xib in Resources */,
 				A0D2CE4322D8B47B00420617 /* Assets.xcassets in Resources */,
+				A01DE37222DCB4FF00B59C15 /* VideoNameHeaderView.xib in Resources */,
 				A0D2CE4122D8B47800420617 /* Main.storyboard in Resources */,
 				A01DE26822DB884800B59C15 /* AddTagViewController.xib in Resources */,
 			);
@@ -380,18 +422,22 @@
 				A01DE2A522DBF01500B59C15 /* GTTopicTableViewCell.m in Sources */,
 				A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */,
 				A01DE25A22DB68DD00B59C15 /* RootViewController.m in Sources */,
-				A01DE26B22DBA63700B59C15 /* GTVideo.m in Sources */,
-				3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */,
+				A01DE36D22DCB4FF00B59C15 /* GTVideo.m in Sources */,
 				A01DE2A422DBF01500B59C15 /* GTTableViewController.m in Sources */,
+				A01DE37622DCB4FF00B59C15 /* UIColor+CustomColor.m in Sources */,
 				A0D2CE4922D8B47B00420617 /* main.m in Sources */,
+				A01DE37122DCB4FF00B59C15 /* TagTableViewCell.m in Sources */,
+				A01DE37722DCB4FF00B59C15 /* YTPlayerView.m in Sources */,
 				A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */,
 				A01DE2A722DBF01500B59C15 /* GTTagTableViewCell.m in Sources */,
+				A01DE36F22DCB4FF00B59C15 /* VideoLauncher.m in Sources */,
 				A01DE27022DBD22A00B59C15 /* NewVideoViewController.m in Sources */,
-				3A0BC46D22D8DDF5005B2F31 /* VideoLauncher.m in Sources */,
 				A01DE26022DB6F8F00B59C15 /* CollectionViewCell.m in Sources */,
 				A01DE26722DB884800B59C15 /* AddTagViewController.m in Sources */,
-				3A0BC47422D8E3E6005B2F31 /* VideoPlayerView.m in Sources */,
-				A01DE2A922DBF01500B59C15 /* GTTag.m in Sources */,
+				A01DE37022DCB4FF00B59C15 /* VideoLauncherConstants.m in Sources */,
+				A01DE37522DCB4FF00B59C15 /* GTTag.m in Sources */,
+				A01DE37322DCB4FF00B59C15 /* VideoNameHeaderView.m in Sources */,
+				A01DE36E22DCB4FF00B59C15 /* Defaults.m in Sources */,
 				A01DE2A822DBF01500B59C15 /* GTTopic.m in Sources */,
 				A01DE2A322DBF01500B59C15 /* GTFistScreenViewController.m in Sources */,
 			);

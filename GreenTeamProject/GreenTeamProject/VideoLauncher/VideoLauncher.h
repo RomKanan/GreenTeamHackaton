@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GTVideo.h"
-#import "VideoLauncher TableView/GTTag.h"
+#import "GTTag.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

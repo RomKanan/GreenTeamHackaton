@@ -43,7 +43,7 @@
     
     
     
-    GTVideo *video = [[GTVideo alloc] initWithLink:self.urlTextField.text];
+    GTVideo *video = [[GTVideo alloc] initWithURLString:self.urlTextField.text];
     GTVideo *videoToPresent;
     if (self.videous == nil) {
         self.videous = [NSMutableDictionary new];

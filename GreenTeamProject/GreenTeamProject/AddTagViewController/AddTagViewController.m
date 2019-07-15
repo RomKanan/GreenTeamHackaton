@@ -31,9 +31,7 @@
 }
 
 - (void)setupView {
-    self.videoNameLable.text = self.video.name;
     self.timeSlider.minimumValue = 0.0;
-    self.timeSlider.maximumValue = self.video.lengh;
     [self.timeSlider setValue:self.curentTime];
     self.curentTimeLable.text = [self stringFromTimeInterval:self.curentTime];
     self.chosenGroupLable.hidden = YES;

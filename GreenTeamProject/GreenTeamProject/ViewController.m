@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "VideoLauncher/VideoLauncher.h"
-#import "VideoLauncher/VideoLauncher TableView/GTTag.h"
+#import "GTTag.h"
 
 @interface ViewController () <VideoLauncherListener>
 

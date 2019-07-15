@@ -20,7 +20,7 @@
 @implementation GTFistScreenViewController
 
 - (void)createTopics {
-    GTTag *tag = [[GTTag alloc] initWithColor:[UIColor greenColor] name:@"TableView delegates"];
+   GTTag *tag = [GTTag new];
     
     GTTopic *topic1 = [[GTTopic alloc] initWithTags:[[NSMutableArray alloc] initWithArray:@[tag]] topics:[[NSMutableArray alloc] initWithArray:@[]] name:@"TableView"];
     
