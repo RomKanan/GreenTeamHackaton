@@ -120,6 +120,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3A02456C22DCDC3600AF6FDE /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				A01DE35E22DCB4FF00B59C15 /* Defaults.h */,
+				A01DE35A22DCB4FF00B59C15 /* Defaults.m */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
 		A01DE25622DB689900B59C15 /* RootViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,8 +219,6 @@
 		A01DE35622DCB4FF00B59C15 /* VideoLauncher */ = {
 			isa = PBXGroup;
 			children = (
-				A01DE35E22DCB4FF00B59C15 /* Defaults.h */,
-				A01DE35A22DCB4FF00B59C15 /* Defaults.m */,
 				A01DE35922DCB4FF00B59C15 /* VideoLauncherConstants.h */,
 				A01DE35D22DCB4FF00B59C15 /* VideoLauncherConstants.m */,
 				A01DE35F22DCB4FF00B59C15 /* VideoLauncher TableView */,
@@ -267,6 +274,7 @@
 			children = (
 				C69859F522DCCBF900BABA61 /* Core */,
 				A01DE36822DCB4FF00B59C15 /* UIColor Category */,
+				3A02456C22DCDC3600AF6FDE /* Defaults */,
 				A01DE35622DCB4FF00B59C15 /* VideoLauncher */,
 				A01DE29E22DBF01500B59C15 /* Models */,
 				A01DE29122DBF01500B59C15 /* Screens */,

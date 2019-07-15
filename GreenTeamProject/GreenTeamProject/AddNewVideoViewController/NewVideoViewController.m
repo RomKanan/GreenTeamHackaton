@@ -9,10 +9,10 @@
 #import "NewVideoViewController.h"
 #import "GTVideo.h"
 #import "Reachability.h"
-
+#import "../Defaults/Defaults.h"
 
 @interface NewVideoViewController ()
-@property (strong, nonatomic)NSMutableDictionary<NSString*, GTVideo*> *videous;
+@property (strong, nonatomic)NSMutableDictionary<NSString*, GTVideo*> *videos;
 @property (weak, nonatomic) IBOutlet UITextField *urlTextField;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
@@ -29,9 +29,6 @@
     
     // placeholder code to upload Dictionary of GTVideo from storage
 }
-
-
-
 
 - (IBAction)startButtonPressed:(id)sender {
     self.overlayView.hidden = NO;
@@ -53,18 +50,20 @@
     GTVideo *video = [[GTVideo alloc] initWithURLString:self.urlTextField.text];
     
     
-    
     GTVideo *videoToPresent;
-    if (self.videous == nil) {
-        self.videous = [NSMutableDictionary new];
+    if (self.videos == nil) {
+        self.videos = [NSMutableDictionary new];
     }
     
-    if ([self.videous objectForKey:video.ID]) {
-        videoToPresent = [self.videous objectForKey:video.ID];
+    if ([self.videos objectForKey:video.ID]) {
+        videoToPresent = [self.videos objectForKey:video.ID];
     } else {
-        [self.videous setObject:video forKey:video.ID];
+        [self.videos setObject:video forKey:video.ID];
         videoToPresent = video;
     }
+    
+    [Defaults.shared saveVideo:videoToPresent];
+    self.videos = [NSMutableDictionary dictionaryWithDictionary:[Defaults.shared getVideos]];
     
     // placeholder code to present videoToPresent
     VideoLauncherViewController *videoVC = [[VideoLauncherViewController alloc] initWithVideo:video];
@@ -82,8 +81,6 @@
     } completion:nil];
     
     [videoVC play];
-    
-    
 }
 
 - (BOOL)isYouTubeURL:(NSString *)url{

@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GTVideo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Defaults : NSObject
+
++ (instancetype)shared;
+- (void)saveVideo:(GTVideo *)video;
+- (NSDictionary *)getVideos;
 
 @end
 
