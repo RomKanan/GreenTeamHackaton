@@ -31,15 +31,17 @@
     self.overlayView.hidden = NO;
     [self.progressIndicator startAnimating];
     
+    if(![self isOnLine]){
+        [self presentLineAlert];
+        return;
+    }
+    
     if(![self isYouTubeURL:self.urlTextField.text]){
         [self presentURLAlert];
         return;
     }
     
-    if(![self isOnLine]){
-        [self presentLineAlert];
-        return;
-    }
+    
     
     GTVideo *video = [[GTVideo alloc] initWithLink:self.urlTextField.text];
     GTVideo *videoToPresent;
@@ -60,13 +62,40 @@
 }
 
 - (BOOL)isYouTubeURL:(NSString *)url{
-    //placeholder
-    return YES;
+    NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
+    NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
+                                                                    options:NSRegularExpressionCaseInsensitive
+                                                                              error:nil];
+    
+    NSArray *array = [regExp matchesInString:url options:0 range:NSMakeRange(0,url.length)];
+    if (array.count > 0) {
+        return YES;
+    }
+    return NO;
 }
 
 - (BOOL) isOnLine{
-    //placeholder
-    return YES;
+    
+    
+    
+    
+    
+    __block BOOL isConnected = YES;
+        NSURL *url = [[NSURL alloc] initWithString:@"https://www.google.com"];
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            NSLog(@"aaa");
+            if (response) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    isConnected = YES;
+                });
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    isConnected = NO;
+                });
+            }
+        }];
+    return isConnected;
 }
 
 - (void) presentURLAlert{
