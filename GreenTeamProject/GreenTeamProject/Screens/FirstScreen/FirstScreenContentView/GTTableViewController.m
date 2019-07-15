@@ -62,6 +62,7 @@ static NSString * const reuseHeaderIdentifier = @"header";
     } else if ([self.items[indexPath.row] isKindOfClass:GTTag.class]) {
         GTTagTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseTagIdentifier forIndexPath:indexPath];
         cell.nameLabel.text = ((GTTag *)self.items[indexPath.row]).name;
+        cell.tagItem = self.items[indexPath.row];
         return cell;
     } else {
         UITableViewCell *cell = [[UITableViewCell alloc] init];
