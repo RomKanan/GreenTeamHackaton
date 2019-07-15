@@ -39,6 +39,22 @@
         [self.nameLabel.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor]]];
     self.nameLabel.numberOfLines = 0;
     
+    self.subCountLabel = [[UILabel alloc] init];
+    [self.contentView addSubview:self.subCountLabel];
+    self.subCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+        [self.subCountLabel.leadingAnchor constraintEqualToAnchor:self.nameLabel.trailingAnchor constant:10],
+        [self.subCountLabel.centerYAnchor constraintEqualToAnchor:self.nameLabel.centerYAnchor constant:2]]];
+    self.subCountLabel.font = [UIFont systemFontOfSize:12.f];
+    
+    self.tagCountLabel = [[UILabel alloc] init];
+    [self.contentView addSubview:self.tagCountLabel];
+    self.tagCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+        [self.tagCountLabel.leadingAnchor constraintEqualToAnchor:self.subCountLabel.trailingAnchor constant:5],
+        [self.tagCountLabel.centerYAnchor constraintEqualToAnchor:self.nameLabel.centerYAnchor constant:2]]];
+    self.tagCountLabel.font = [UIFont systemFontOfSize:12.f];
+    
     self.moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.contentView addSubview:self.moreButton];
     self.moreButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -57,7 +73,9 @@
     NSMutableArray *arrayOfTopicsAndTags = [[NSMutableArray alloc] initWithArray:self.topic.topics];
     [arrayOfTopicsAndTags addObjectsFromArray:self.topic.tags];
     
-    NSDictionary *userInformation = @{@"items" : arrayOfTopicsAndTags};
+    NSDictionary *userInformation = @{@"items" : arrayOfTopicsAndTags,
+                                      @"topicName" : self.topic.name
+                                      };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RedirectToNextViewController" object:nil userInfo:userInformation];
 }
 

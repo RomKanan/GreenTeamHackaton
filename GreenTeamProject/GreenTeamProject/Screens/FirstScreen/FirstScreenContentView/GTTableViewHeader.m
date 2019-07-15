@@ -29,6 +29,14 @@
     [self.backButton setTintColor:[UIColor blackColor]];
     [self.backButton addTarget:self action:@selector(backButtonDidPress:) forControlEvents:UIControlEventTouchUpInside];
     
+    
+    self.directoryNameLabel = [[UILabel alloc] init];
+    [self.contentView addSubview:self.directoryNameLabel];
+    self.directoryNameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+        [self.directoryNameLabel.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor],
+        [self.directoryNameLabel.centerXAnchor constraintEqualToAnchor:self.contentView.centerXAnchor]]];
+    self.directoryNameLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:22.f];
 }
 
 - (void)backButtonDidPress:(id)sender {
