@@ -8,6 +8,7 @@
 #import "VideoLauncherViewController.h"
 #import "NewVideoViewController.h"
 #import "GTVideo.h"
+#import "Reachability.h"
 
 
 @interface NewVideoViewController ()
@@ -99,26 +100,14 @@
 }
 
 - (BOOL) isOnLine{
+    BOOL isConnected = YES;
+    Reachability  *checker = [Reachability reachabilityWithHostname:@"google.com"];
+    NetworkStatus status = [checker currentReachabilityStatus];
     
-    
-    
-    
-    
-    __block BOOL isConnected = YES;
-        NSURL *url = [[NSURL alloc] initWithString:@"https://www.google.com"];
-        NSURLSession *session = [NSURLSession sharedSession];
-        NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            NSLog(@"aaa");
-            if (response) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    isConnected = YES;
-                });
-            } else {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    isConnected = NO;
-                });
-            }
-        }];
+    if (status == NotReachable)
+        isConnected = NO;
+    else
+        isConnected = YES;
     return isConnected;
 }
 
