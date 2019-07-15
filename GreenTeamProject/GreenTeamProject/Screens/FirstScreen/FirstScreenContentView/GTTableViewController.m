@@ -34,6 +34,8 @@ static NSString * const reuseHeaderIdentifier = @"header";
     
     self.tableView.estimatedRowHeight = 50.f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redirectToNextViewController:) name:@"RedirectToNextViewController" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redirectToPreviosViewController:) name:@"RedirectToPreviosViewController" object:nil];

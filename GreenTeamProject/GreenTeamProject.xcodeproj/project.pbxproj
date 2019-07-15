@@ -32,7 +32,6 @@
 		A01DE37422DCB4FF00B59C15 /* TagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE36622DCB4FF00B59C15 /* TagTableViewCell.xib */; };
 		A01DE37522DCB4FF00B59C15 /* GTTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE36722DCB4FF00B59C15 /* GTTag.m */; };
 		A01DE37622DCB4FF00B59C15 /* UIColor+CustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE36A22DCB4FF00B59C15 /* UIColor+CustomColor.m */; };
-		A01DE37722DCB4FF00B59C15 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE36B22DCB4FF00B59C15 /* YTPlayerView.m */; };
 		A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3A22D8B47800420617 /* AppDelegate.m */; };
 		A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3D22D8B47800420617 /* ViewController.m */; };
 		A0D2CE4122D8B47800420617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE3F22D8B47800420617 /* Main.storyboard */; };
@@ -85,9 +84,7 @@
 		A01DE36522DCB4FF00B59C15 /* VideoNameHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoNameHeaderView.m; sourceTree = "<group>"; };
 		A01DE36622DCB4FF00B59C15 /* TagTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagTableViewCell.xib; sourceTree = "<group>"; };
 		A01DE36722DCB4FF00B59C15 /* GTTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTag.m; sourceTree = "<group>"; };
-		A01DE36922DCB4FF00B59C15 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
 		A01DE36A22DCB4FF00B59C15 /* UIColor+CustomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColor.m"; sourceTree = "<group>"; };
-		A01DE36B22DCB4FF00B59C15 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		A01DE36C22DCB4FF00B59C15 /* UIColor+CustomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColor.h"; sourceTree = "<group>"; };
 		A0D2CE3622D8B47800420617 /* GreenTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2CE3922D8B47800420617 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -219,8 +216,7 @@
 				A01DE35E22DCB4FF00B59C15 /* Defaults.h */,
 				A01DE35F22DCB4FF00B59C15 /* VideoLauncher TableView */,
 			);
-			name = VideoLauncher;
-			path = GreenTeamProject/VideoLauncher;
+			path = VideoLauncher;
 			sourceTree = "<group>";
 		};
 		A01DE35F22DCB4FF00B59C15 /* VideoLauncher TableView */ = {
@@ -239,20 +235,15 @@
 		A01DE36822DCB4FF00B59C15 /* UIColor Category */ = {
 			isa = PBXGroup;
 			children = (
-				A01DE36922DCB4FF00B59C15 /* YTPlayerView.h */,
 				A01DE36A22DCB4FF00B59C15 /* UIColor+CustomColor.m */,
-				A01DE36B22DCB4FF00B59C15 /* YTPlayerView.m */,
 				A01DE36C22DCB4FF00B59C15 /* UIColor+CustomColor.h */,
 			);
-			name = "UIColor Category";
-			path = "GreenTeamProject/UIColor Category";
+			path = "UIColor Category";
 			sourceTree = "<group>";
 		};
 		A0D2CE2D22D8B47800420617 = {
 			isa = PBXGroup;
 			children = (
-				A01DE36822DCB4FF00B59C15 /* UIColor Category */,
-				A01DE35622DCB4FF00B59C15 /* VideoLauncher */,
 				A0D2CE3822D8B47800420617 /* GreenTeamProject */,
 				A0D2CE3722D8B47800420617 /* Products */,
 				BB9391A4AE60DE17F95221AE /* Pods */,
@@ -271,6 +262,8 @@
 		A0D2CE3822D8B47800420617 /* GreenTeamProject */ = {
 			isa = PBXGroup;
 			children = (
+				A01DE36822DCB4FF00B59C15 /* UIColor Category */,
+				A01DE35622DCB4FF00B59C15 /* VideoLauncher */,
 				A01DE29E22DBF01500B59C15 /* Models */,
 				A01DE29122DBF01500B59C15 /* Screens */,
 				A01DE26C22DBB90C00B59C15 /* AddNewVideoViewController */,
@@ -427,7 +420,6 @@
 				A01DE37622DCB4FF00B59C15 /* UIColor+CustomColor.m in Sources */,
 				A0D2CE4922D8B47B00420617 /* main.m in Sources */,
 				A01DE37122DCB4FF00B59C15 /* TagTableViewCell.m in Sources */,
-				A01DE37722DCB4FF00B59C15 /* YTPlayerView.m in Sources */,
 				A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */,
 				A01DE2A722DBF01500B59C15 /* GTTagTableViewCell.m in Sources */,
 				A01DE36F22DCB4FF00B59C15 /* VideoLauncher.m in Sources */,
