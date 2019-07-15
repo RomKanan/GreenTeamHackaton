@@ -14,14 +14,10 @@
     if (self = [super init]) {
         _tags = [NSMutableArray new];
         _ID = [self extractYoutubeIdFromLink:urlString];
-        NSDictionary *nameAndAuthor = [self videoNameAndAuthorByID:_ID];
-        _name = nameAndAuthor[@"name"];
-        _author = nameAndAuthor[@"author"];
     }
     return self;
 }
 
-// TEST !!!
 - (NSString *)extractYoutubeIdFromLink:(NSString *)link {
     NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
     NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
@@ -36,18 +32,33 @@
     return nil;
 }
 
-- (NSDictionary<NSString *, NSString *> *)videoNameAndAuthorByID:(NSString *)ID {
+- (void)loadVideoInfo:(void(^)(NSMutableDictionary *info))completionHandler {
     NSString *urlString =
-    [NSString stringWithFormat:@"https://noembed.com/embed?url=https://www.youtube.com/watch?v=%@", ID];
+    [NSString stringWithFormat:@"https://www.googleapis.com/youtube/v3/search?part=snippet&q=%@&type=video&videoSyndicated=true&chart=mostPopular&maxResults=10&safeSearch=strict&order=relevance&order=viewCount&type=video&relevanceLanguage=en&regionCode=GB&key=AIzaSyCF_zbjXNZ2TD179bAEVuOVeZqzU4gfxVE", _ID];
     NSURL *url = [NSURL URLWithString:urlString];
-    if (!url) { return nil; }
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    if (!data) { return nil; }
-    NSError *error;
-    NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    if (!json) { return nil; }
-    NSDictionary *videoNameAndAuthor = @{@"name": json[@"title"], @"author": json[@"author_name"]};
-    return videoNameAndAuthor;
+    if (!url) { return; }
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    if (!session) { return; }
+    NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (!data || error) {
+            return;
+        }
+        NSError *jsonError;
+        NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                                     options:NSJSONReadingMutableContainers
+                                                                                       error:&jsonError];
+        if (!json) {
+            return;
+        }
+        NSMutableDictionary *items = json[@"items"][0];
+        NSMutableDictionary *videoInfo = items[@"snippet"];
+        NSMutableDictionary *info = [NSMutableDictionary new];
+        info[@"name"] = videoInfo[@"title"];
+        info[@"author"] = videoInfo[@"channelTitle"];
+        info[@"image_url"] = videoInfo[@"thumbnails"][@"high"][@"url"];
+        completionHandler(info);
+    }];
+    [task resume];
 }
 
 

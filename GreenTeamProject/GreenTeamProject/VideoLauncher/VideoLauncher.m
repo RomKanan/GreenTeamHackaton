@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSString *videoName;
 @property (nonatomic, strong) NSString *videoID;
 @property (nonatomic, strong) NSString *videoAuthor;
+@property (nonatomic, strong) NSString *videoImageURL;
 @property (nonatomic, assign) NSTimeInterval startSeconds;
 
 @end
@@ -35,11 +36,9 @@
 - (instancetype)initWithVideo:(GTVideo *)video {
     if (self = [super init]) {
         _tags = video.tags;
-        _videoName = video.name;
         _videoID = video.ID;
-        _videoAuthor = video.author;
         _startSeconds = 0;
-        [self commonInit];
+        [self commonInit:video];
     }
     return self;
 }
@@ -47,20 +46,32 @@
 - (instancetype)initWithTag:(GTTag *)tag {
     if (self = [super init]) {
         _tags = [NSMutableArray new];
-        _videoName = tag.video.name;
         _videoID = tag.video.ID;
-        _videoAuthor = tag.video.author;
         _startSeconds = tag.time;
-        [self commonInit];
+        [self commonInit:tag.video];
     }
     return self;
 }
 
-- (void)commonInit {
+- (void)commonInit:(GTVideo *)video {
     [self setupVideoPlayerPageView];
     [self setupVideoPlayerView];
     [self setupTagsTableView];
     [self setupActionButtons];
+    __typeof(self) __weak weakSelf = self;
+    [video loadVideoInfo:^(NSMutableDictionary *info) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.videoName = info[@"name"];
+            weakSelf.videoAuthor = info[@"author"];
+            weakSelf.videoImageURL = info[@"image_url"];
+            [self loadImageAtURL:self.videoImageURL completionHandler:^(UIImage *image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    weakSelf.videoPlayerImageView.image = image;
+                });
+            }];
+            [weakSelf.tagsTableView reloadData];
+        });
+    }];
 }
 
 - (void)setupVideoPlayerPageView {
@@ -109,12 +120,13 @@
     [_videoPlayerIndicator startAnimating];
     [self.videoPlayerPageView addSubview:_videoPlayerImageView];
     [self.videoPlayerPageView addSubview:_videoPlayerIndicator];
-    __typeof(self) __weak weakSelf = self;
-    [self loadImageAtVideoID:self.videoID completionHandler:^(UIImage *image) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.videoPlayerImageView.image = image;
-        });
-    }];
+}
+
+- (void)loadImageAtURL:(NSString *)imageURL
+     completionHandler:(void(^)(UIImage *image))completion {
+    NSURL *url = [NSURL URLWithString:imageURL];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    completion([UIImage imageWithData:data]);
 }
 
 - (void)setupTagsTableView {
@@ -212,13 +224,6 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
     } completion:^(BOOL finished) {
     }];
     return YES;
-}
-
-- (void)loadImageAtVideoID:(NSString *)videoID
-         completionHandler:(void(^)(UIImage *image))completion {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://img.youtube.com/vi/%@/0.jpg", videoID]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    completion([UIImage imageWithData:data]);
 }
 
 #pragma mark - UITableViewDelegate/DataSource

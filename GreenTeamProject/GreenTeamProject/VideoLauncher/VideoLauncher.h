@@ -19,6 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+//@protocol TagsTableViewListener <NSObject>
+//
+//@required
+//- (void)delete
+//
+//@end
+
 @interface VideoLauncher : NSObject
 
 @property (weak, nonatomic) id<VideoLauncherListener> listener;

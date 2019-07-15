@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A02455722DB8A2700AF6FDE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A02455622DB8A2700AF6FDE /* WebKit.framework */; };
 		3A02455C22DBC7D300AF6FDE /* GTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A02455A22DBC7D300AF6FDE /* GTVideo.m */; };
+		3A02456622DC988000AF6FDE /* Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A02456522DC988000AF6FDE /* Defaults.m */; };
 		3A0BC46D22D8DDF5005B2F31 /* VideoLauncher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */; };
 		3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0BC47022D8DF5E005B2F31 /* VideoLauncherConstants.m */; };
 		3A6A126022DA5EFF003DA61A /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6A125F22DA5EFF003DA61A /* TagTableViewCell.m */; };
@@ -30,6 +31,8 @@
 		3A02455622DB8A2700AF6FDE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		3A02455A22DBC7D300AF6FDE /* GTVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTVideo.m; sourceTree = "<group>"; };
 		3A02455B22DBC7D300AF6FDE /* GTVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTVideo.h; sourceTree = "<group>"; };
+		3A02456422DC988000AF6FDE /* Defaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defaults.h; sourceTree = "<group>"; };
+		3A02456522DC988000AF6FDE /* Defaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Defaults.m; sourceTree = "<group>"; };
 		3A0BC46B22D8DDF5005B2F31 /* VideoLauncher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLauncher.h; sourceTree = "<group>"; };
 		3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoLauncher.m; sourceTree = "<group>"; };
 		3A0BC46F22D8DF5E005B2F31 /* VideoLauncherConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoLauncherConstants.h; sourceTree = "<group>"; };
@@ -82,6 +85,8 @@
 				3A02455A22DBC7D300AF6FDE /* GTVideo.m */,
 				3A0BC46B22D8DDF5005B2F31 /* VideoLauncher.h */,
 				3A0BC46C22D8DDF5005B2F31 /* VideoLauncher.m */,
+				3A02456422DC988000AF6FDE /* Defaults.h */,
+				3A02456522DC988000AF6FDE /* Defaults.m */,
 			);
 			path = VideoLauncher;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				3A6A128D22DA9556003DA61A /* VideoNameHeaderView.m in Sources */,
 				A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */,
 				3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */,
+				3A02456622DC988000AF6FDE /* Defaults.m in Sources */,
 				3A6A12B522DB68EC003DA61A /* UIColor+CustomColor.m in Sources */,
 				A0D2CE4922D8B47B00420617 /* main.m in Sources */,
 				3A6A126022DA5EFF003DA61A /* TagTableViewCell.m in Sources */,
