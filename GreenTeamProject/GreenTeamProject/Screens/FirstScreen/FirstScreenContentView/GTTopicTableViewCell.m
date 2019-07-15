@@ -10,7 +10,7 @@
 #import "GTTagTableViewCell.h"
 
 @interface GTTopicTableViewCell ()
-@property (nonatomic, strong) UITableView *tableView;
+
 @end
 
 @implementation GTTopicTableViewCell
@@ -44,7 +44,7 @@
     self.subCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
         [self.subCountLabel.leadingAnchor constraintEqualToAnchor:self.nameLabel.trailingAnchor constant:10],
-        [self.subCountLabel.centerYAnchor constraintEqualToAnchor:self.nameLabel.centerYAnchor constant:2]]];
+        [self.subCountLabel.centerYAnchor constraintEqualToAnchor:self.nameLabel.centerYAnchor]]];
     self.subCountLabel.font = [UIFont systemFontOfSize:12.f];
     
     self.tagCountLabel = [[UILabel alloc] init];
@@ -52,7 +52,7 @@
     self.tagCountLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [NSLayoutConstraint activateConstraints:@[
         [self.tagCountLabel.leadingAnchor constraintEqualToAnchor:self.subCountLabel.trailingAnchor constant:5],
-        [self.tagCountLabel.centerYAnchor constraintEqualToAnchor:self.nameLabel.centerYAnchor constant:2]]];
+        [self.tagCountLabel.centerYAnchor constraintEqualToAnchor:self.nameLabel.centerYAnchor]]];
     self.tagCountLabel.font = [UIFont systemFontOfSize:12.f];
     
     self.moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
