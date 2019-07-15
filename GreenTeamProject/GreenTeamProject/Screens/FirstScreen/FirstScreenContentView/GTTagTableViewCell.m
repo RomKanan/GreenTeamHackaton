@@ -56,13 +56,13 @@
     [self.redirectingButton setImage:[UIImage imageNamed:@"playButton"] forState:UIControlStateNormal];
     
     [self.redirectingButton addTarget:self action:@selector(movedButtonDidPress:) forControlEvents:UIControlEventTouchUpInside];
-    
-
 }
 
 // Redirect to viewCotroller
 
 - (void)movedButtonDidPress:(id)sender {
+    NSDictionary *userInfo = @{@"tag" : self.tagItem};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RedirectToVideoScreen" object:nil userInfo:userInfo];
 }
 
 @end
