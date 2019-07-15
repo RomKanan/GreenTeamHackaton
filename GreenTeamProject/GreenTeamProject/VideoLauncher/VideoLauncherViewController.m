@@ -6,7 +6,6 @@
 //  Copyright © 2019 GreenTeam. All rights reserved.
 //
 
-#import "VideoLauncherViewController.h"
 
 #import "VideoLauncherViewController.h"
 #import "VideoLauncherConstants.h"

@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewVideoViewController">
             <connections>
+                <outlet property="containerConstraint" destination="gFf-TI-JwM" id="Y7S-Jo-y6V"/>
+                <outlet property="containerView" destination="8qe-5g-g0D" id="LqD-GH-afk"/>
                 <outlet property="overlayView" destination="xi3-7j-JNb" id="nNT-n8-Kde"/>
                 <outlet property="progressIndicator" destination="enf-RI-1X5" id="gDD-Ex-wde"/>
                 <outlet property="startButton" destination="sxP-Bb-EAm" id="3q5-Ii-YSW"/>
@@ -47,10 +49,17 @@
                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="enf-RI-1X5">
                             <rect key="frame" x="169" y="305" width="37" height="37"/>
                         </activityIndicatorView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qe-5g-g0D">
+                            <rect key="frame" x="0.0" y="647" width="375" height="667"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <viewLayoutGuide key="safeArea" id="gl6-48-uVg"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="enf-RI-1X5" firstAttribute="centerX" secondItem="xi3-7j-JNb" secondAttribute="centerX" id="beO-Pn-BDH"/>
+                        <constraint firstItem="8qe-5g-g0D" firstAttribute="centerX" secondItem="xi3-7j-JNb" secondAttribute="centerX" id="d1Y-n1-dzi"/>
+                        <constraint firstAttribute="bottom" secondItem="8qe-5g-g0D" secondAttribute="top" symbolic="YES" id="gFf-TI-JwM"/>
                         <constraint firstItem="enf-RI-1X5" firstAttribute="centerY" secondItem="xi3-7j-JNb" secondAttribute="centerY" id="uU0-vk-4Qh"/>
                     </constraints>
                 </view>
@@ -63,7 +72,10 @@
                 <constraint firstItem="DCK-1C-5Ch" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="LZe-2g-KvN"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="xi3-7j-JNb" secondAttribute="trailing" id="ZbH-yW-dLJ"/>
                 <constraint firstItem="xi3-7j-JNb" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="eSb-fw-Lvb"/>
+                <constraint firstItem="8qe-5g-g0D" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="eXB-sM-kNg"/>
                 <constraint firstItem="sxP-Bb-EAm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jXz-Yg-3hd"/>
+                <constraint firstAttribute="bottom" secondItem="xi3-7j-JNb" secondAttribute="bottom" id="m9l-Us-MWO"/>
+                <constraint firstItem="8qe-5g-g0D" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="oMo-th-ib7"/>
                 <constraint firstItem="DCK-1C-5Ch" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="120" id="qUD-hq-fUj"/>
                 <constraint firstItem="xi3-7j-JNb" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="t5K-6P-pxt"/>
             </constraints>

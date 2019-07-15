@@ -98,7 +98,6 @@ static NSString* const sliderCenter = @"center";
     }
     
     if ([keyPath isEqualToString:sliderCenter]) {
-        NSLog(@"aaaaa");
         CGFloat newCenterX = [[change objectForKey:NSKeyValueChangeNewKey] CGPointValue].x;
         CGFloat tagCenter = self.tagsButton.center.x;
         CGFloat videoCenter = self.videoButton.center.x;

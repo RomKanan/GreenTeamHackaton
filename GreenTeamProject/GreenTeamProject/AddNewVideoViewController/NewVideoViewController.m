@@ -5,7 +5,7 @@
 //  Created by Roma on 7/15/19.
 //  Copyright © 2019 GreenTeam. All rights reserved.
 //
-
+#import "VideoLauncherViewController.h"
 #import "NewVideoViewController.h"
 #import "GTVideo.h"
 
@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIView *overlayView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *progressIndicator;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerConstraint;
 
 @end
 
@@ -27,9 +29,13 @@
     // placeholder code to upload Dictionary of GTVideo from storage
 }
 
+
+
+
 - (IBAction)startButtonPressed:(id)sender {
     self.overlayView.hidden = NO;
     [self.progressIndicator startAnimating];
+    [self.urlTextField resignFirstResponder];
     
     if(![self isOnLine]){
         [self presentLineAlert];
@@ -44,6 +50,9 @@
     
     
     GTVideo *video = [[GTVideo alloc] initWithURLString:self.urlTextField.text];
+    
+    
+    
     GTVideo *videoToPresent;
     if (self.videous == nil) {
         self.videous = [NSMutableDictionary new];
@@ -57,6 +66,21 @@
     }
     
     // placeholder code to present videoToPresent
+    VideoLauncherViewController *videoVC = [[VideoLauncherViewController alloc] initWithVideo:video];
+    [self addChildViewController:videoVC];
+    [self.containerView addSubview:videoVC.view];
+    videoVC.view.translatesAutoresizingMaskIntoConstraints = NO;
+    [NSLayoutConstraint activateConstraints:@[
+     [videoVC.view.topAnchor constraintEqualToAnchor:self.containerView.topAnchor],
+     [videoVC.view.leadingAnchor constraintEqualToAnchor:self.containerView.leadingAnchor],
+     [videoVC.view.trailingAnchor constraintEqualToAnchor:self.containerView.trailingAnchor],
+     [videoVC.view.bottomAnchor constraintEqualToAnchor:self.containerView.bottomAnchor]]];
+    [videoVC didMoveToParentViewController:self];
+    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionLayoutSubviews animations:^{
+        self.containerConstraint.constant = CGRectGetHeight(self.view.bounds);
+    } completion:nil];
+    
+    
     
     
 }
