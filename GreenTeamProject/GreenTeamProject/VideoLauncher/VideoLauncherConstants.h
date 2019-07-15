@@ -11,8 +11,19 @@
 struct VideoLauncherConstants {
     const CGFloat videoPlayerVideStartWidth;
     const CGFloat videoPlayerVideStartHeight;
+    const CGFloat videoPlayerVideMiddleWidth;
+    const CGFloat videoPlayerVideMiddleHeight;
     const CGFloat widthProportion;
     const CGFloat heightProportion;
+    const NSInteger sectionsAmount;
+    NSString * const tagCellIdentifier;
+    const CGFloat cellHeight;
+    NSString * const sectionHeaderViewIdentifier;
+    CGFloat buttonHeight;
+    CGFloat buttonWidth;
+    CGFloat tableViewActionButtonSpacing;
+    CGFloat headerHeight;
+    NSString * const addButtonImageName;
 };
 
 extern const struct VideoLauncherConstants videoLauncherConstants;
