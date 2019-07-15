@@ -57,8 +57,7 @@
     
     [self.redirectingButton addTarget:self action:@selector(movedButtonDidPress:) forControlEvents:UIControlEventTouchUpInside];
     
-    self.layer.borderWidth = .5f;
-    self.layer.borderColor = [[UIColor colorWithRed:223.f/255.f green:223.f/255.f blue:223.f/255.f alpha:1.f] CGColor];
+
 }
 
 // Redirect to viewCotroller

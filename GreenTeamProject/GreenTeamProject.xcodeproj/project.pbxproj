@@ -21,19 +21,19 @@
 		A01DE26B22DBA63700B59C15 /* GTVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE26A22DBA63700B59C15 /* GTVideo.m */; };
 		A01DE27022DBD22A00B59C15 /* NewVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE26E22DBD22A00B59C15 /* NewVideoViewController.m */; };
 		A01DE27122DBD22A00B59C15 /* NewVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A01DE26F22DBD22A00B59C15 /* NewVideoViewController.xib */; };
+		A01DE2A322DBF01500B59C15 /* GTFistScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE29322DBF01500B59C15 /* GTFistScreenViewController.m */; };
+		A01DE2A422DBF01500B59C15 /* GTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE29522DBF01500B59C15 /* GTTableViewController.m */; };
+		A01DE2A522DBF01500B59C15 /* GTTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE29622DBF01500B59C15 /* GTTopicTableViewCell.m */; };
+		A01DE2A622DBF01500B59C15 /* GTTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE29922DBF01500B59C15 /* GTTableViewHeader.m */; };
+		A01DE2A722DBF01500B59C15 /* GTTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE29C22DBF01500B59C15 /* GTTagTableViewCell.m */; };
+		A01DE2A822DBF01500B59C15 /* GTTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE2A022DBF01500B59C15 /* GTTopic.m */; };
+		A01DE2A922DBF01500B59C15 /* GTTag.m in Sources */ = {isa = PBXBuildFile; fileRef = A01DE2A122DBF01500B59C15 /* GTTag.m */; };
 		A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3A22D8B47800420617 /* AppDelegate.m */; };
 		A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE3D22D8B47800420617 /* ViewController.m */; };
 		A0D2CE4122D8B47800420617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE3F22D8B47800420617 /* Main.storyboard */; };
 		A0D2CE4322D8B47B00420617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE4222D8B47B00420617 /* Assets.xcassets */; };
 		A0D2CE4622D8B47B00420617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0D2CE4422D8B47B00420617 /* LaunchScreen.storyboard */; };
 		A0D2CE4922D8B47B00420617 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A0D2CE4822D8B47B00420617 /* main.m */; };
-		C69859B222D8D93D00BABA61 /* GTFistScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69859B122D8D93D00BABA61 /* GTFistScreenViewController.m */; };
-		C69859B722D8DBD500BABA61 /* GTTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = C69859B622D8DBD500BABA61 /* GTTopic.m */; };
-		C69859BA22D8DBF400BABA61 /* GTTag.m in Sources */ = {isa = PBXBuildFile; fileRef = C69859B922D8DBF400BABA61 /* GTTag.m */; };
-		C69859E222DB953200BABA61 /* GTTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C69859E122DB953200BABA61 /* GTTableViewHeader.m */; };
-		C69859E822DB9ED500BABA61 /* GTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C69859E722DB9ED500BABA61 /* GTTableViewController.m */; };
-		C69859ED22DBB06D00BABA61 /* GTTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69859E922DBB06D00BABA61 /* GTTagTableViewCell.m */; };
-		C69859EE22DBB06D00BABA61 /* GTTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C69859EC22DBB06D00BABA61 /* GTTopicTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +61,20 @@
 		A01DE26D22DBD22A00B59C15 /* NewVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewVideoViewController.h; sourceTree = "<group>"; };
 		A01DE26E22DBD22A00B59C15 /* NewVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewVideoViewController.m; sourceTree = "<group>"; };
 		A01DE26F22DBD22A00B59C15 /* NewVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewVideoViewController.xib; sourceTree = "<group>"; };
+		A01DE29322DBF01500B59C15 /* GTFistScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTFistScreenViewController.m; sourceTree = "<group>"; };
+		A01DE29522DBF01500B59C15 /* GTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTableViewController.m; sourceTree = "<group>"; };
+		A01DE29622DBF01500B59C15 /* GTTopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTopicTableViewCell.m; sourceTree = "<group>"; };
+		A01DE29722DBF01500B59C15 /* GTTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTableViewHeader.h; sourceTree = "<group>"; };
+		A01DE29822DBF01500B59C15 /* GTTagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTagTableViewCell.h; sourceTree = "<group>"; };
+		A01DE29922DBF01500B59C15 /* GTTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTableViewHeader.m; sourceTree = "<group>"; };
+		A01DE29A22DBF01500B59C15 /* GTTopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTopicTableViewCell.h; sourceTree = "<group>"; };
+		A01DE29B22DBF01500B59C15 /* GTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTableViewController.h; sourceTree = "<group>"; };
+		A01DE29C22DBF01500B59C15 /* GTTagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTagTableViewCell.m; sourceTree = "<group>"; };
+		A01DE29D22DBF01500B59C15 /* GTFistScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTFistScreenViewController.h; sourceTree = "<group>"; };
+		A01DE29F22DBF01500B59C15 /* GTTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTag.h; sourceTree = "<group>"; };
+		A01DE2A022DBF01500B59C15 /* GTTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTopic.m; sourceTree = "<group>"; };
+		A01DE2A122DBF01500B59C15 /* GTTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTag.m; sourceTree = "<group>"; };
+		A01DE2A222DBF01500B59C15 /* GTTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTopic.h; sourceTree = "<group>"; };
 		A0D2CE3622D8B47800420617 /* GreenTeamProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenTeamProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D2CE3922D8B47800420617 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A0D2CE3A22D8B47800420617 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -71,20 +85,6 @@
 		A0D2CE4522D8B47B00420617 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0D2CE4722D8B47B00420617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0D2CE4822D8B47B00420617 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C69859B022D8D93D00BABA61 /* GTFistScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTFistScreenViewController.h; sourceTree = "<group>"; };
-		C69859B122D8D93D00BABA61 /* GTFistScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTFistScreenViewController.m; sourceTree = "<group>"; };
-		C69859B522D8DBD500BABA61 /* GTTopic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTopic.h; sourceTree = "<group>"; };
-		C69859B622D8DBD500BABA61 /* GTTopic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTopic.m; sourceTree = "<group>"; };
-		C69859B822D8DBF400BABA61 /* GTTag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTag.h; sourceTree = "<group>"; };
-		C69859B922D8DBF400BABA61 /* GTTag.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTag.m; sourceTree = "<group>"; };
-		C69859E022DB953200BABA61 /* GTTableViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTableViewHeader.h; sourceTree = "<group>"; };
-		C69859E122DB953200BABA61 /* GTTableViewHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTableViewHeader.m; sourceTree = "<group>"; };
-		C69859E622DB9ED500BABA61 /* GTTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTableViewController.h; sourceTree = "<group>"; };
-		C69859E722DB9ED500BABA61 /* GTTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTableViewController.m; sourceTree = "<group>"; };
-		C69859E922DBB06D00BABA61 /* GTTagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTagTableViewCell.m; sourceTree = "<group>"; };
-		C69859EA22DBB06D00BABA61 /* GTTopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTopicTableViewCell.h; sourceTree = "<group>"; };
-		C69859EB22DBB06D00BABA61 /* GTTagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTagTableViewCell.h; sourceTree = "<group>"; };
-		C69859EC22DBB06D00BABA61 /* GTTopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTopicTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +161,52 @@
 			path = AddNewVideoViewController;
 			sourceTree = "<group>";
 		};
+		A01DE29122DBF01500B59C15 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A01DE29222DBF01500B59C15 /* FirstScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		A01DE29222DBF01500B59C15 /* FirstScreen */ = {
+			isa = PBXGroup;
+			children = (
+				A01DE29D22DBF01500B59C15 /* GTFistScreenViewController.h */,
+				A01DE29322DBF01500B59C15 /* GTFistScreenViewController.m */,
+				A01DE29422DBF01500B59C15 /* FirstScreenContentView */,
+			);
+			path = FirstScreen;
+			sourceTree = "<group>";
+		};
+		A01DE29422DBF01500B59C15 /* FirstScreenContentView */ = {
+			isa = PBXGroup;
+			children = (
+				A01DE29B22DBF01500B59C15 /* GTTableViewController.h */,
+				A01DE29522DBF01500B59C15 /* GTTableViewController.m */,
+				A01DE29A22DBF01500B59C15 /* GTTopicTableViewCell.h */,
+				A01DE29622DBF01500B59C15 /* GTTopicTableViewCell.m */,
+				A01DE29822DBF01500B59C15 /* GTTagTableViewCell.h */,
+				A01DE29C22DBF01500B59C15 /* GTTagTableViewCell.m */,
+				A01DE29722DBF01500B59C15 /* GTTableViewHeader.h */,
+				A01DE29922DBF01500B59C15 /* GTTableViewHeader.m */,
+			);
+			path = FirstScreenContentView;
+			sourceTree = "<group>";
+		};
+		A01DE29E22DBF01500B59C15 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A01DE29F22DBF01500B59C15 /* GTTag.h */,
+				A01DE2A022DBF01500B59C15 /* GTTopic.m */,
+				A01DE2A122DBF01500B59C15 /* GTTag.m */,
+				A01DE2A222DBF01500B59C15 /* GTTopic.h */,
+				A01DE26922DBA63700B59C15 /* GTVideo.h */,
+				A01DE26A22DBA63700B59C15 /* GTVideo.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A0D2CE2D22D8B47800420617 = {
 			isa = PBXGroup;
 			children = (
@@ -182,15 +228,12 @@
 		A0D2CE3822D8B47800420617 /* GreenTeamProject */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< .merge_file_foMxR0
+				A01DE29E22DBF01500B59C15 /* Models */,
+				A01DE29122DBF01500B59C15 /* Screens */,
 				A01DE26C22DBB90C00B59C15 /* AddNewVideoViewController */,
 				A01DE26322DB87F900B59C15 /* AddTagViewController */,
 				A01DE25622DB689900B59C15 /* RootViewController */,
 				3A6A125322D9ED75003DA61A /* GoogleService-Info.plist */,
-=======
-				C69859B422D8D97400BABA61 /* Models */,
-				C69859AB22D8D8DC00BABA61 /* Screens */,
->>>>>>> .merge_file_VOPnRM
 				A0D2CE3922D8B47800420617 /* AppDelegate.h */,
 				A0D2CE3A22D8B47800420617 /* AppDelegate.m */,
 				A0D2CE3C22D8B47800420617 /* ViewController.h */,
@@ -201,13 +244,10 @@
 				A0D2CE4722D8B47B00420617 /* Info.plist */,
 				A0D2CE4822D8B47B00420617 /* main.m */,
 				3A0BC46E22D8DE00005B2F31 /* VideoLauncher */,
-				A01DE26922DBA63700B59C15 /* GTVideo.h */,
-				A01DE26A22DBA63700B59C15 /* GTVideo.m */,
 			);
 			path = GreenTeamProject;
 			sourceTree = "<group>";
 		};
-<<<<<<< .merge_file_foMxR0
 		BB9391A4AE60DE17F95221AE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,50 +255,6 @@
 				0599DB01E989C32B998EAE88 /* Pods-GreenTeamProject.release.xcconfig */,
 			);
 			path = Pods;
-=======
-		C69859AB22D8D8DC00BABA61 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				C69859AC22D8D8ED00BABA61 /* FirstScreen */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		C69859AC22D8D8ED00BABA61 /* FirstScreen */ = {
-			isa = PBXGroup;
-			children = (
-				C69859B322D8D94A00BABA61 /* FirstScreenContentView */,
-				C69859B022D8D93D00BABA61 /* GTFistScreenViewController.h */,
-				C69859B122D8D93D00BABA61 /* GTFistScreenViewController.m */,
-			);
-			path = FirstScreen;
-			sourceTree = "<group>";
-		};
-		C69859B322D8D94A00BABA61 /* FirstScreenContentView */ = {
-			isa = PBXGroup;
-			children = (
-				C69859EB22DBB06D00BABA61 /* GTTagTableViewCell.h */,
-				C69859E922DBB06D00BABA61 /* GTTagTableViewCell.m */,
-				C69859EA22DBB06D00BABA61 /* GTTopicTableViewCell.h */,
-				C69859EC22DBB06D00BABA61 /* GTTopicTableViewCell.m */,
-				C69859E022DB953200BABA61 /* GTTableViewHeader.h */,
-				C69859E122DB953200BABA61 /* GTTableViewHeader.m */,
-				C69859E622DB9ED500BABA61 /* GTTableViewController.h */,
-				C69859E722DB9ED500BABA61 /* GTTableViewController.m */,
-			);
-			path = FirstScreenContentView;
-			sourceTree = "<group>";
-		};
-		C69859B422D8D97400BABA61 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C69859B522D8DBD500BABA61 /* GTTopic.h */,
-				C69859B622D8DBD500BABA61 /* GTTopic.m */,
-				C69859B822D8DBF400BABA61 /* GTTag.h */,
-				C69859B922D8DBF400BABA61 /* GTTag.m */,
-			);
-			path = Models;
->>>>>>> .merge_file_VOPnRM
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,27 +376,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C69859EE22DBB06D00BABA61 /* GTTopicTableViewCell.m in Sources */,
-				C69859BA22D8DBF400BABA61 /* GTTag.m in Sources */,
+				A01DE2A622DBF01500B59C15 /* GTTableViewHeader.m in Sources */,
+				A01DE2A522DBF01500B59C15 /* GTTopicTableViewCell.m in Sources */,
 				A0D2CE3E22D8B47800420617 /* ViewController.m in Sources */,
 				A01DE25A22DB68DD00B59C15 /* RootViewController.m in Sources */,
 				A01DE26B22DBA63700B59C15 /* GTVideo.m in Sources */,
 				3A0BC47122D8DF5E005B2F31 /* VideoLauncherConstants.m in Sources */,
+				A01DE2A422DBF01500B59C15 /* GTTableViewController.m in Sources */,
 				A0D2CE4922D8B47B00420617 /* main.m in Sources */,
-				C69859E822DB9ED500BABA61 /* GTTableViewController.m in Sources */,
 				A0D2CE3B22D8B47800420617 /* AppDelegate.m in Sources */,
-<<<<<<< .merge_file_foMxR0
+				A01DE2A722DBF01500B59C15 /* GTTagTableViewCell.m in Sources */,
 				A01DE27022DBD22A00B59C15 /* NewVideoViewController.m in Sources */,
 				3A0BC46D22D8DDF5005B2F31 /* VideoLauncher.m in Sources */,
 				A01DE26022DB6F8F00B59C15 /* CollectionViewCell.m in Sources */,
 				A01DE26722DB884800B59C15 /* AddTagViewController.m in Sources */,
 				3A0BC47422D8E3E6005B2F31 /* VideoPlayerView.m in Sources */,
-=======
-				C69859ED22DBB06D00BABA61 /* GTTagTableViewCell.m in Sources */,
-				C69859B722D8DBD500BABA61 /* GTTopic.m in Sources */,
-				C69859E222DB953200BABA61 /* GTTableViewHeader.m in Sources */,
-				C69859B222D8D93D00BABA61 /* GTFistScreenViewController.m in Sources */,
->>>>>>> .merge_file_VOPnRM
+				A01DE2A922DBF01500B59C15 /* GTTag.m in Sources */,
+				A01DE2A822DBF01500B59C15 /* GTTopic.m in Sources */,
+				A01DE2A322DBF01500B59C15 /* GTFistScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -46,6 +46,7 @@
     
     [self addChildViewController:tableViewController];
     [tableViewController didMoveToParentViewController:self];
+    tableViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.view addSubview:tableViewController.tableView];
     tableViewController.tableView.translatesAutoresizingMaskIntoConstraints = NO;

@@ -8,6 +8,9 @@
 
 #import "RootViewController.h"
 #import "CollectionViewCell.h"
+#import "GTFistScreenViewController.h"
+#import "NewVideoViewController.h"
+
 
 
 @interface RootViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -46,9 +49,29 @@ static NSString* const sliderCenter = @"center";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:containerCell forIndexPath:indexPath];
     if (indexPath.item == 0) {
-        cell.containerView.backgroundColor = [UIColor lightGrayColor];
+        GTFistScreenViewController *tree = [GTFistScreenViewController new];
+        [self addChildViewController:tree];
+        [cell addSubview:tree.view];
+        tree.view.translatesAutoresizingMaskIntoConstraints = NO;
+        [NSLayoutConstraint activateConstraints:@[
+            [tree.view.topAnchor constraintEqualToAnchor:cell.containerView.topAnchor],
+            [tree.view.leadingAnchor constraintEqualToAnchor:cell.leadingAnchor],
+            [tree.view.trailingAnchor constraintEqualToAnchor:cell.trailingAnchor],
+            [tree.view.bottomAnchor constraintEqualToAnchor:cell.containerView.bottomAnchor]]];
+        [tree didMoveToParentViewController:self];
     } else {
-        cell.containerView.backgroundColor = [UIColor darkGrayColor];
+        NewVideoViewController *video = [NewVideoViewController new];
+        [self addChildViewController:video];
+        [cell addSubview:video.view];
+        video.view.translatesAutoresizingMaskIntoConstraints = NO;
+        [NSLayoutConstraint activateConstraints:@[
+            [video.view.topAnchor constraintEqualToAnchor:cell.containerView.topAnchor],
+            [video.view.leadingAnchor constraintEqualToAnchor:cell.leadingAnchor],
+            [video.view.trailingAnchor constraintEqualToAnchor:cell.trailingAnchor],
+            [video.view.bottomAnchor constraintEqualToAnchor:cell.containerView.bottomAnchor]]];
+       
+        [video didMoveToParentViewController:self];
+
     }
     return cell;
 }
@@ -100,11 +123,16 @@ static NSString* const sliderCenter = @"center";
 #pragma mark: Navigation
 - (IBAction)tagsButtonPressed:(id)sender {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
-    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone  animated:NO];
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone  animated:NO];
+    }];
+
 }
 - (IBAction)videoButtonPressed:(id)sender {
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:1 inSection:0];
-    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone  animated:NO];
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone  animated:NO];
+    }];
 }
 
 
