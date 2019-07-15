@@ -61,8 +61,8 @@
 // Redirect to viewCotroller
 
 - (void)movedButtonDidPress:(id)sender {
-    self.videoLauncher = [[VideoLauncher alloc] initWithTag:self.tagItem];
-    [self.videoLauncher play];
+    NSDictionary *userInfo = @{@"tag" : self.tagItem};
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RedirectToVideoScreen" object:nil userInfo:userInfo];
 }
 
 @end

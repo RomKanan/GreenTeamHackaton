@@ -64,6 +64,12 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redirectToVideoScreen:) name:@"RedirectToVideoScreen" object:nil];
+}
+
+- (void)redirectToVideoScreen:(NSNotification *)notification {
+    
 }
 
 @end
