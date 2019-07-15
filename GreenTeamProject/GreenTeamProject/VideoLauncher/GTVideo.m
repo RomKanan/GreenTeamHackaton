@@ -11,17 +11,17 @@
 @implementation GTVideo
 
 - (instancetype)initWithURLString:(NSString *)urlString {
-    self = [super init];
-    if (self) {
-        _urlString = urlString;
+    if (self = [super init]) {
         _tags = [NSMutableArray new];
-        NSString *ID = [self extractYoutubeIdFromLink:urlString];
-        _name = [self videoNameByID:ID];
+        _ID = [self extractYoutubeIdFromLink:urlString];
+        NSDictionary *nameAndAuthor = [self videoNameAndAuthorByID:_ID];
+        _name = nameAndAuthor[@"name"];
+        _author = nameAndAuthor[@"author"];
     }
     return self;
 }
 
-// TEST!
+// TEST !!!
 - (NSString *)extractYoutubeIdFromLink:(NSString *)link {
     NSString *regexString = @"((?<=(v|V)/)|(?<=be/)|(?<=(\\?|\\&)v=)|(?<=embed/))([\\w-]++)";
     NSRegularExpression *regExp = [NSRegularExpression regularExpressionWithPattern:regexString
@@ -36,7 +36,7 @@
     return nil;
 }
 
-- (NSString *)videoNameByID:(NSString *)ID {
+- (NSDictionary<NSString *, NSString *> *)videoNameAndAuthorByID:(NSString *)ID {
     NSString *urlString =
     [NSString stringWithFormat:@"https://noembed.com/embed?url=https://www.youtube.com/watch?v=%@", ID];
     NSURL *url = [NSURL URLWithString:urlString];
@@ -46,7 +46,8 @@
     NSError *error;
     NSDictionary<NSString *, id> *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     if (!json) { return nil; }
-    return json[@"title"];
+    NSDictionary *videoNameAndAuthor = @{@"name": json[@"title"], @"author": json[@"author_name"]};
+    return videoNameAndAuthor;
 }
 
 

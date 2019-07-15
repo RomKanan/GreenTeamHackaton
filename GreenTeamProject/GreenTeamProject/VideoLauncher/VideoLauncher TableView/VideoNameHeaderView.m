@@ -12,6 +12,7 @@
 @interface VideoNameHeaderView ()
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *authorNameLabel;
 
 @end
 
@@ -21,6 +22,7 @@
     [super awakeFromNib];
     self.backgroundColor = [UIColor blackColor];
     self.nameLabel.textColor = [UIColor blackColor];
+    self.authorNameLabel.textColor = [UIColor blackColor];
     [self editBackgroundView];
 }
 
@@ -33,6 +35,10 @@
 
 - (void)setVideoName:(NSString *)videoName {
     self.nameLabel.text = videoName;
+}
+
+- (void)setAuthorName:(NSString *)authorName {
+    self.authorNameLabel.text = authorName;
 }
 
 @end

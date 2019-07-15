@@ -11,19 +11,21 @@
 #import "VideoLauncher TableView/TagTableViewCell.h"
 #import "VideoLauncher TableView/VideoNameHeaderView.h"
 #import "WKYTPlayerView.h"
-#import "VideoImageLoader.h"
 
 @interface VideoLauncher () <UITableViewDelegate, UITableViewDataSource, WKYTPlayerViewDelegate, TagTableViewCellListener>
 
 @property (nonatomic, strong) UIView *videoPlayerPageView;
 @property (nonatomic, strong) WKYTPlayerView *videoPlayerView;
+@property (nonatomic, strong) UIImageView *videoPlayerImageView;
+@property (nonatomic, strong) UIActivityIndicatorView *videoPlayerIndicator;
 @property (nonatomic, strong) NSLayoutConstraint *videoPlayerViewHeightConstraint;
 @property (nonatomic, strong) UITableView *tagsTableView;
 @property (nonatomic, strong) UIButton *addTagButton;
 
 @property (nonatomic, strong) NSMutableArray<GTTag *> *tags; //create tag class with appropriate info
 @property (nonatomic, strong) NSString *videoName;
-@property (nonatomic, strong) NSString *videoURL;
+@property (nonatomic, strong) NSString *videoID;
+@property (nonatomic, strong) NSString *videoAuthor;
 @property (nonatomic, assign) NSTimeInterval startSeconds;
 
 @end
@@ -31,23 +33,25 @@
 @implementation VideoLauncher
 
 - (instancetype)initWithVideo:(GTVideo *)video {
-    self = [super init];
-    if (self) {
-        [self commonInit];
+    if (self = [super init]) {
         _tags = video.tags;
         _videoName = video.name;
+        _videoID = video.ID;
+        _videoAuthor = video.author;
         _startSeconds = 0;
+        [self commonInit];
     }
     return self;
 }
 
 - (instancetype)initWithTag:(GTTag *)tag {
-    self = [super init];
-    if (self) {
-        [self commonInit];
-        _videoName = tag.video.name;
+    if (self = [super init]) {
         _tags = [NSMutableArray new];
+        _videoName = tag.video.name;
+        _videoID = tag.video.ID;
+        _videoAuthor = tag.video.author;
         _startSeconds = tag.time;
+        [self commonInit];
     }
     return self;
 }
@@ -76,16 +80,16 @@
 }
 
 - (void)setupVideoPlayerView {
-    _videoPlayerView = [WKYTPlayerView new];
-    _videoPlayerView.delegate = self;
-    _videoPlayerView.translatesAutoresizingMaskIntoConstraints = NO;
     UIWindow *keyWindow = UIApplication.sharedApplication.keyWindow;
     if (!keyWindow) {
         return;
     }
+    _videoPlayerView = [WKYTPlayerView new];
+    _videoPlayerView.delegate = self;
     [_videoPlayerPageView addSubview:_videoPlayerView];
     _videoPlayerView.translatesAutoresizingMaskIntoConstraints = NO;
-    _videoPlayerViewHeightConstraint =  [_videoPlayerView.heightAnchor constraintEqualToConstant:keyWindow.frame.size.width * videoLauncherConstants.heightProportion / videoLauncherConstants.widthProportion];
+    _videoPlayerViewHeightConstraint =
+    [_videoPlayerView.heightAnchor constraintEqualToConstant:keyWindow.frame.size.width * videoLauncherConstants.heightProportion / videoLauncherConstants.widthProportion];
     [NSLayoutConstraint activateConstraints:@[
                                               [_videoPlayerView.leadingAnchor constraintEqualToAnchor:_videoPlayerPageView.leadingAnchor],
                                               [_videoPlayerView.topAnchor constraintEqualToAnchor:_videoPlayerPageView.topAnchor],
@@ -93,41 +97,24 @@
                                               _videoPlayerViewHeightConstraint,
                                               ]
      ];
-    UISwipeGestureRecognizer *swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(playerVideoViewSwipeDown:)];
-    [_videoPlayerView addGestureRecognizer:swipeDownGestureRecognizer];
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerViewTapped:)];
-    [_videoPlayerView addGestureRecognizer:tapGestureRecognizer];
-    
-}
-
-- (void)playerVideoViewSwipeDown:(UISwipeGestureRecognizer *)swipeGestureRecognizer {
-    if (swipeGestureRecognizer.view == self.videoPlayerView) {
-        if (self.videoPlayerPageView.bounds.size.width == self.videoPlayerPageView.bounds.size.width) {
-            [self compressVideoPlayerView];
-        } else {
-            [self deleteSubviews];
-        }
-    }
-}
-
-- (void)deleteSubviews {
-    [self.addTagButton removeFromSuperview];
-    self.addTagButton = nil;
-    [self.tagsTableView removeFromSuperview];
-    self.tagsTableView = nil;
-    [self.videoPlayerView removeFromSuperview];
-    self.videoPlayerView = nil;
-    [self.videoPlayerPageView removeFromSuperview];
-    self.videoPlayerPageView = nil;
-    if ([self.listener conformsToProtocol:@protocol(VideoLauncherListener)]) {
-        [self.listener deleteVideoLauncher];
-    }
-}
-
-- (void)playerViewTapped:(UITapGestureRecognizer *)tapGestureRecognizer {
-    if (self.videoPlayerView.bounds.size.width == videoLauncherConstants.videoPlayerVideMiddleWidth) {
-        [self expandVideoPlayerView];
-    }
+    [_videoPlayerView setHidden:YES];
+    CGRect commonFrame = CGRectMake(0,
+                                    0,
+                                    keyWindow.frame.size.width,
+                                    _videoPlayerViewHeightConstraint.constant);
+    _videoPlayerIndicator = [[UIActivityIndicatorView alloc] initWithFrame:commonFrame];
+    _videoPlayerImageView =
+    [[UIImageView alloc] initWithFrame:commonFrame];
+    _videoPlayerIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    [_videoPlayerIndicator startAnimating];
+    [self.videoPlayerPageView addSubview:_videoPlayerImageView];
+    [self.videoPlayerPageView addSubview:_videoPlayerIndicator];
+    __typeof(self) __weak weakSelf = self;
+    [self loadImageAtVideoID:self.videoID completionHandler:^(UIImage *image) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            weakSelf.videoPlayerImageView.image = image;
+        });
+    }];
 }
 
 - (void)setupTagsTableView {
@@ -188,8 +175,9 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
 
 - (void)play {
     if ([self expandVideoPlayerView]) {
-        NSString *ID = @"13flvY-cbUw"; // CONVERT URL TO ID
-        [self.videoPlayerView loadWithVideoId:ID];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.videoPlayerView loadWithVideoId:self.videoID];
+        });
     }
 }
 
@@ -226,6 +214,13 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
     return YES;
 }
 
+- (void)loadImageAtVideoID:(NSString *)videoID
+         completionHandler:(void(^)(UIImage *image))completion {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://img.youtube.com/vi/%@/0.jpg", videoID]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    completion([UIImage imageWithData:data]);
+}
+
 #pragma mark - UITableViewDelegate/DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -256,6 +251,7 @@ forHeaderFooterViewReuseIdentifier:videoLauncherConstants.sectionHeaderViewIdent
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     VideoNameHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:videoLauncherConstants.sectionHeaderViewIdentifier];
     [headerView setVideoName:self.videoName];
+    [headerView setAuthorName:self.videoAuthor];
     return headerView;
 }
 
@@ -280,10 +276,18 @@ leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
     return swipeConfiguration;
 }
 
-#pragma mark - TagTableViewCellListener
+#pragma mark - Conforming to TagTableViewCellListener
 
 - (void)tapOnCellRecognized:(float)time {
     [self.videoPlayerView seekToSeconds:time allowSeekAhead:YES];
+}
+
+#pragma mark - Conforming to WKYTPlayerViewDelegate
+
+- (void)playerViewDidBecomeReady:(WKYTPlayerView *)playerView {
+    [_videoPlayerImageView setHidden:YES];
+    [_videoPlayerView setHidden:NO];
+    [_videoPlayerIndicator stopAnimating];
 }
 
 @end

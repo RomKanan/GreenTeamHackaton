@@ -22,6 +22,6 @@ const struct VideoLauncherConstants videoLauncherConstants = {
     .buttonHeight = 40,
     .buttonWidth = 40,
     .tableViewActionButtonSpacing = 10,
-    .headerHeight = 60,
+    .headerHeight = 120,
     .addButtonImageName = @"add-1",
 };

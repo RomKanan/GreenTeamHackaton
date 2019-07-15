@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VideoNameHeaderView : UITableViewHeaderFooterView
 
 - (void)setVideoName:(NSString *)videoName;
+- (void)setAuthorName:(NSString *)authorName;
 
 @end
 
