@@ -33,8 +33,7 @@ static NSString * const reuseHeaderIdentifier = @"header";
     
     self.tableView.estimatedRowHeight = 50.f;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redirectToNextViewController:) name:@"RedirectToNextViewController" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(redirectToPreviosViewController:) name:@"RedirectToPreviosViewController" object:nil];
 }
@@ -65,6 +64,7 @@ static NSString * const reuseHeaderIdentifier = @"header";
         return cell;
     } else {
         UITableViewCell *cell = [[UITableViewCell alloc] init];
+        cell.textLabel.text = [NSString stringWithFormat:@"Tags:"];
         return cell;
     }
 }
@@ -73,7 +73,7 @@ static NSString * const reuseHeaderIdentifier = @"header";
     if ([self.parentViewController isKindOfClass:GTTableViewController.class]) {
         GTTableViewHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:reuseHeaderIdentifier];
         header.contentView.backgroundColor = [UIColor colorWithRed:255.f/255.f green:36.f/255.f blue:0.f alpha:1.f];
-        header.directoryNameLabel.text = self.parentDirectoryName;
+        header.directoryNameLabel.text = self.topic.name;
         return header;
     }
     else {
@@ -87,11 +87,33 @@ static NSString * const reuseHeaderIdentifier = @"header";
     return 40.f;
 }
 
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        
+        id object = self.items[indexPath.row];
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        [self.items removeObjectAtIndex:indexPath.row];
+        
+        if ([cell isKindOfClass:GTTopicTableViewCell.class]) {
+            [self.topic.topics removeObject:object];
+        } else {
+            [self.topic.tags removeObject:object];
+        }
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+    }];
+    
+    return @[deleteAction];
+}
+
 - (void)redirectToNextViewController:(NSNotification *)notification {
     GTTableViewController *tableViewController = [[GTTableViewController alloc] init];
     
     [self addChildViewController:tableViewController];
     [tableViewController didMoveToParentViewController:self];
+    
+    tableViewController.items = notification.userInfo[@"items"];
+    tableViewController.topic = notification.userInfo[@"topic"];
     
     [self.view addSubview:tableViewController.tableView];
     tableViewController.tableView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -100,16 +122,16 @@ static NSString * const reuseHeaderIdentifier = @"header";
                                               [tableViewController.tableView.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor],
                                               [tableViewController.tableView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor],
                                               [tableViewController.tableView.bottomAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor]]];
-    
-    tableViewController.items = notification.userInfo[@"items"];
-    tableViewController.parentDirectoryName = notification.userInfo[@"topicName"];
 }
 
 - (void)redirectToPreviosViewController:(NSNotification *)notification {
+    
     GTTableViewController *viewController = self.childViewControllers.lastObject;
     [viewController willMoveToParentViewController:nil];
     [viewController.tableView removeFromSuperview];
     [viewController removeFromParentViewController];
+    
+    [self.tableView reloadData];
 }
 
 @end
