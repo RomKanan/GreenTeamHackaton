@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GTTableViewHeader : UITableViewHeaderFooterView
+
 @property (nonatomic, strong) UILabel *directoryNameLabel;
 @property (nonatomic, strong) UIButton *backButton;
+
 @end
 
 NS_ASSUME_NONNULL_END
