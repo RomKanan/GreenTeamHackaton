@@ -74,7 +74,8 @@
     [arrayOfTopicsAndTags addObjectsFromArray:self.topic.tags];
     
     NSDictionary *userInformation = @{@"items" : arrayOfTopicsAndTags,
-                                      @"topicName" : self.topic.name
+                                      @"topicName" : self.topic.name,
+                                      @"topic": self.topic
                                       };
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RedirectToNextViewController" object:nil userInfo:userInformation];
 }
